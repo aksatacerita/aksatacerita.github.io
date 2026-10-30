@@ -693,6 +693,12 @@
       "title": "Strip Cerita",
       "category": "Photostrip",
       "image": "img/gallery/strip-cerita.webp"
+    },
+    {
+      "id": "8d132fd2-cb00-444d-956c-5ec802cdae38",
+      "title": "Ngoding Bareng",
+      "category": "Photostrip",
+      "image": "img/gallery/1ExxK6jKe_eDLIn5YrZZXUlmn54HRUnhI.jpg"
     }
   ],
   "instagram": [
@@ -705,5 +711,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-10-30T11:45:18.134Z"
+  "updated_at": "2026-10-30T11:47:35.751Z"
 }
