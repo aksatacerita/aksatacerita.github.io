@@ -143,6 +143,25 @@
         "1 Cetakan koran"
       ],
       "is_featured": false
+    },
+    {
+      "id": "40c91bf1-cca1-44e0-a50a-82a95a698c1d",
+      "name": "coba",
+      "description": "eesa",
+      "duration_value": 1,
+      "duration_unit": "menit",
+      "price_note": "Per sesihtgg",
+      "price_amount": 25000,
+      "price_style": "k",
+      "old_price_amount": 300000,
+      "addon_price_amount": 200,
+      "addon_text": "baru",
+      "tag": "Baru",
+      "color": "#14b8a6",
+      "features": [
+        "coba"
+      ],
+      "is_featured": false
     }
   ],
   "frames": [
@@ -711,5 +730,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-10-30T11:48:23.473Z"
+  "updated_at": "2026-10-30T17:50:23.916Z"
 }
