@@ -207,3 +207,5 @@ footer { background:#0d0d0d;color:white;padding:65px 0 25px; }.footer-top{displa
 .section-heading>p{margin-inline:auto}
 .section-heading.compact .limited-pill{display:inline-block}
 .section-heading.compact .limited-note{margin:20px auto 0;font:600 11px "Space Grotesk";letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
+
+.credit a{text-decoration:underline;text-underline-offset:3px;font-weight:700}.credit a:hover{color:var(--orange)}
