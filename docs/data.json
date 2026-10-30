@@ -59,29 +59,6 @@
       "is_featured": true
     },
     {
-      "id": "7",
-      "name": "Pasport Photobooth",
-      "description": "",
-      "duration_value": null,
-      "duration_unit": "menit",
-      "price_note": "",
-      "price_amount": 35000,
-      "price_style": "k",
-      "old_price_amount": null,
-      "addon_price_amount": 15000,
-      "addon_text": "1 Set Pasport + Boarding Pass",
-      "tag": "",
-      "color": "#ff6738",
-      "features": [
-        "1 Cetakan 4R",
-        "1 Set Pasport + Boarding Pass",
-        "Gif, Original Photo, Photo Frame",
-        "Bisa re-take foto kalian",
-        "1 Sesi 1 Tema Background"
-      ],
-      "is_featured": false
-    },
-    {
       "id": "6",
       "name": "ID Card",
       "description": "",
@@ -119,6 +96,29 @@
       "color": "#b7e433",
       "features": [
         "1 Cetakan DVD",
+        "Gif, Original Photo, Photo Frame",
+        "Bisa re-take foto kalian",
+        "1 Sesi 1 Tema Background"
+      ],
+      "is_featured": false
+    },
+    {
+      "id": "7",
+      "name": "Pasport Photobooth",
+      "description": "",
+      "duration_value": null,
+      "duration_unit": "menit",
+      "price_note": "",
+      "price_amount": 35000,
+      "price_style": "k",
+      "old_price_amount": null,
+      "addon_price_amount": 15000,
+      "addon_text": "1 Set Pasport + Boarding Pass",
+      "tag": "",
+      "color": "#ff6738",
+      "features": [
+        "1 Cetakan 4R",
+        "1 Set Pasport + Boarding Pass",
         "Gif, Original Photo, Photo Frame",
         "Bisa re-take foto kalian",
         "1 Sesi 1 Tema Background"
@@ -730,5 +730,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-10-30T17:51:16.391Z"
+  "updated_at": "2026-10-30T17:52:30.085Z"
 }
