@@ -115,7 +115,7 @@ label.f>span.req{color:var(--red)}
 
   /* ---------- Tabs ---------- */
   function renderTabs() {
-    var items = Object.keys(S.schema).map(function (k) { return [k, S.schema[k].label]; }).concat([['info', 'Info Studio']]);
+    var items = ['paket', 'frame', 'galeri', 'instagram'].map(function (k) { return [k, S.schema[k].label]; }).concat([['info', 'Info Studio']]);
     $('#tabs').innerHTML = items.map(function (it) { return '<button data-t="' + it[0] + '" class="' + (it[0] === tab ? 'on' : '') + '">' + esc(it[1]) + '</button>'; }).join('');
   }
   $('#tabs').addEventListener('click', function (e) {
@@ -147,7 +147,7 @@ label.f>span.req{color:var(--red)}
     rows.forEach(function (r) {
       var src = imgSrc(r.image);
       html += '<div class="row ' + (r.active ? '' : 'off') + '" data-id="' + esc(r.id) + '"><span class="handle" title="Tahan lalu geser">⠿</span>' +
-        (def.imgDir !== null || kind === 'frame' || kind === 'galeri' ? (src ? '<img class="thumb" src="' + esc(src) + '" alt="">' : '<div class="thumb">·</div>') : '<div class="thumb">' + (kind === 'paket' ? '★' : '◎') + '</div>') +
+        (def.imgDir !== null || kind === 'frame' || kind === 'galeri' ? (src ? '<img class="thumb" src="' + esc(src) + '" alt="" onerror="this.outerHTML=\'<div class=thumb>!</div>\'">' : '<div class="thumb">·</div>') : '<div class="thumb">' + (kind === 'paket' ? '★' : '◎') + '</div>') +
         '<div><b>' + esc(titleOf(kind, r)) + (r.is_featured ? '<span class="badge">UNGGULAN</span>' : '') + (r.active ? '' : ' (disembunyikan)') + '</b><small>' + esc(subtitle(kind, r)) + '</small></div>' +
         '<div class="acts"><input type="checkbox" class="chk" data-sel="' + esc(r.id) + '"><button data-edit="' + esc(r.id) + '">Ubah</button><button class="del" data-del="' + esc(r.id) + '">Hapus</button></div></div>';
     });

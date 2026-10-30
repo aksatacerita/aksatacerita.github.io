@@ -94,9 +94,11 @@ function setupSheets() {
     var headers = ['id'].concat(def.fields.map(function (f) { return f.h; }));
     sh.getRange(1, 1, 1, headers.length).setValues([headers]).setFontWeight('bold');
     sh.setFrozenRows(1);
+    formatSheet_(kind);
   });
   var st = ss.getSheetByName(SETTINGS_SHEET) || ss.insertSheet(SETTINGS_SHEET);
   st.getRange(1, 1, 1, 2).setValues([['kunci', 'nilai']]).setFontWeight('bold');
+  plainText_(st, 1, 0); plainText_(st, 2, 0);
   var have = readSettings_();
   var add = Object.keys(DEFAULT_SETTINGS).filter(function (k) { return !(k in have); })
     .map(function (k) { return [k, DEFAULT_SETTINGS[k]]; });
@@ -104,6 +106,27 @@ function setupSheets() {
   var first = ss.getSheetByName('Sheet1');
   if (first && ss.getSheets().length > 1 && first.getLastRow() === 0) ss.deleteSheet(first);
   return 'Sheet siap.';
+}
+
+
+/* ---------- Penyiapan satu kali ---------- */
+
+/**
+ * Jalankan SEKALI dari editor Apps Script (pilih fungsi ini → Run).
+ * Pemilik script otomatis jadi admin. Tambahkan email admin lain di EXTRA_ADMINS bila perlu.
+ * GITHUB_TOKEN TIDAK diisi di sini (rahasia) — isi manual di Project Settings → Script properties.
+ */
+function setConfig() {
+  var EXTRA_ADMINS = [];
+  var owner = String(Session.getEffectiveUser().getEmail() || '').toLowerCase();
+  var admins = [owner].concat(EXTRA_ADMINS).filter(String);
+  props_().setProperties({
+    ADMIN_EMAILS: admins.join(','),
+    GITHUB_REPO: 'aksatacerita/aksatacerita.github.io',
+    GITHUB_BRANCH: 'main',
+    SITE_DIR: 'docs'
+  });
+  return 'Admin: ' + admins.join(', ');
 }
 
 /* ---------- Akses ---------- */
@@ -133,6 +156,19 @@ function doGet(e) {
 }
 
 /* ---------- Baca / tulis sheet ---------- */
+
+/** Kolom teks diset "teks biasa" supaya Sheets (locale Indonesia) tidak mengubah mis. 111.9158272 menjadi angka ribuan. */
+function plainText_(sh, col, rows) {
+  sh.getRange(2, col, Math.max(rows, 1000), 1).setNumberFormat('@');
+}
+
+function formatSheet_(kind) {
+  var def = SCHEMA[kind];
+  var sh = sheet_(def.sheet);
+  plainText_(sh, 1, 0);
+  def.fields.forEach(function (f, i) { if (f.t !== 'number' && f.t !== 'bool') plainText_(sh, i + 2, 0); });
+}
+
 
 function sheet_(name) {
   var sh = SpreadsheetApp.getActive().getSheetByName(name);
@@ -171,6 +207,7 @@ function writeRows_(kind, rows) {
   var def = SCHEMA[kind];
   var sh = sheet_(def.sheet);
   var width = def.fields.length + 1;
+  formatSheet_(kind);
   var last = sh.getLastRow();
   if (last > 1) sh.getRange(2, 1, last - 1, width).clearContent();
   if (rows.length) {
@@ -192,6 +229,7 @@ function readSettings_() {
 function writeSettings_(obj) {
   var sh = sheet_(SETTINGS_SHEET);
   var keys = Object.keys(obj);
+  plainText_(sh, 1, 0); plainText_(sh, 2, 0);
   if (sh.getLastRow() > 1) sh.getRange(2, 1, sh.getLastRow() - 1, 2).clearContent();
   if (keys.length) sh.getRange(2, 1, keys.length, 2).setValues(keys.map(function (k) { return [k, String(obj[k])]; }));
 }
@@ -295,7 +333,7 @@ function api_upload(dataUrl, name) {
   var folder = driveFolder_();
   var file = folder.createFile(Utilities.newBlob(Utilities.base64Decode(m[2]), m[1], name || 'foto'));
   file.setSharing(DriveApp.Access.ANYONE_WITH_LINK, DriveApp.Permission.VIEW);
-  return 'https://drive.google.com/thumbnail?id=' + file.getId() + '&sz=w1600';
+  return 'https://lh3.googleusercontent.com/d/' + file.getId() + '=w1600';
 }
 
 function driveFolder_() {
@@ -347,7 +385,7 @@ function gh_(method, path, body) {
   return text ? JSON.parse(text) : {};
 }
 
-var DRIVE_ID_RE = /drive\.google\.com\/.*[?&]id=([\w-]+)/;
+var DRIVE_ID_RE = /(?:drive\.google\.com\/.*[?&]id=|googleusercontent\.com\/d\/)([\w-]+)/;
 
 /** Tulis docs/data.json + foto baru ke GitHub dalam satu commit; foto yang tidak dipakai lagi dihapus. */
 function publishSite_() {
@@ -362,7 +400,7 @@ function publishSite_() {
     if (!img) return;
     var m = DRIVE_ID_RE.exec(img);
     if (m) {
-      var res = UrlFetchApp.fetch('https://drive.google.com/thumbnail?id=' + m[1] + '&sz=w1600', { muteHttpExceptions: true, followRedirects: true });
+      var res = UrlFetchApp.fetch('https://lh3.googleusercontent.com/d/' + m[1] + '=w1600', { muteHttpExceptions: true, followRedirects: true });
       if (res.getResponseCode() !== 200) throw new Error('Foto ' + item.name + item.title + ' tidak bisa diambil dari Drive.');
       var type = res.getBlob().getContentType();
       var ext = /png/.test(type) ? 'png' : /webp/.test(type) ? 'webp' : 'jpg';
