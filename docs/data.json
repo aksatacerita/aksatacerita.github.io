@@ -1,0 +1,715 @@
+{
+    "settings": {
+        "studio_name": "Aksata Cerita Photobooth",
+        "city": "Tulungagung",
+        "address": "Jl. I Gusti Ngurah Rai Gg. 7 No.73,\nJepun, Kec. Tulungagung, Kabupaten Tulungagung, Jawa Timur 66218",
+        "latitude": "-8.0412672",
+        "longitude": "111.9158272",
+        "maps_url": "https://maps.app.goo.gl/8VrbRe4nmPsAG6Jf8",
+        "open_days": "Setiap Hari",
+        "open_hours": "10.00 — 22.00 WIB",
+        "last_session": "Last session 21.30",
+        "ticker": "STUDIO OPEN DAILY · 10.00—22.00 WIB",
+        "whatsapp": "6285117375305",
+        "wa_message": "Halo Aksatacerita! Aku mau pesan ",
+        "email": "",
+        "instagram": "aksatacerita",
+        "tiktok": "",
+        "facebook": "",
+        "hero_line1": "Abadikan cerita",
+        "hero_line2": "serumu di",
+        "hero_highlight": "Aksata.",
+        "hero_text": "Masuk, pilih pose paling random, lalu bawa pulang potongan cerita yang nggak akan terulang dua kali.",
+        "proof_show": "1",
+        "proof_rating": "4.9 / 5",
+        "proof_text": "disayang 2,000+ teman cerita",
+        "show_frames": "1",
+        "show_booth": "1",
+        "show_instagram": "1",
+        "gallery_categories": "Bestie, Couple, Solo, DVD, Talent, Event, Photostrip",
+        "options_package_tag": "Most Picked, Best Seller, Promo, Baru, Hemat, Slow & Sweet, Ready in 10 min",
+        "options_package_note": "Mulai dari, Hanya, Per sesi",
+        "options_frame_type": "Frame Biasa, Frame Koran, ID Card, DVD Photobooth",
+        "options_frame_size": "2R, 4R",
+        "options_frame_label": "NEW DROP, SIGNATURE, LIMITED, FAVORITE, BEST SELLER",
+        "meta_title": "Aksata Cerita — Photobooth Studio Tulungagung",
+        "meta_description": "Aksata Cerita, photobooth studio di Tulungagung. Pilih paket, pilih frame, abadikan ceritamu."
+    },
+    "packages": [
+        {
+            "id": "5",
+            "name": "Photostrip",
+            "description": null,
+            "duration_value": null,
+            "duration_unit": "menit",
+            "price_note": "",
+            "price_amount": 25000,
+            "price_style": "k",
+            "old_price_amount": null,
+            "addon_price_amount": 15000,
+            "addon_text": "2 Cetakan 2R atau 1 Cetakan 4R sama dengan sesi sebelumnya",
+            "tag": null,
+            "color": "#0022ff",
+            "features": [
+                "2 Cetakan 2R atau 1 Cetakan 4R",
+                "Gif, Original Photo, Photo Frame",
+                "Bisa re-take foto kalian",
+                "1 Sesi 1 Tema Background"
+            ],
+            "is_featured": true
+        },
+        {
+            "id": "7",
+            "name": "Pasport Photobooth",
+            "description": null,
+            "duration_value": null,
+            "duration_unit": "menit",
+            "price_note": "",
+            "price_amount": 35000,
+            "price_style": "k",
+            "old_price_amount": null,
+            "addon_price_amount": 15000,
+            "addon_text": "1 Set Pasport + Boarding Pass",
+            "tag": null,
+            "color": "#ff6738",
+            "features": [
+                "1 Cetakan 4R",
+                "1 Set Pasport + Boarding Pass",
+                "Gif, Original Photo, Photo Frame",
+                "Bisa re-take foto kalian",
+                "1 Sesi 1 Tema Background"
+            ],
+            "is_featured": false
+        },
+        {
+            "id": "6",
+            "name": "ID Card",
+            "description": null,
+            "duration_value": null,
+            "duration_unit": "menit",
+            "price_note": "",
+            "price_amount": 25000,
+            "price_style": "k",
+            "old_price_amount": null,
+            "addon_price_amount": 15000,
+            "addon_text": "1 Cetakan ID CARD sama dengan sesi sebelumnya",
+            "tag": null,
+            "color": "#ff79b8",
+            "features": [
+                "1 Cetakan ID CARD",
+                "Gif, Original Photo, Photo Frame",
+                "Bisa re-take foto kalian",
+                "1 Sesi 1 Tema Background"
+            ],
+            "is_featured": false
+        },
+        {
+            "id": "8",
+            "name": "DVD Photobooth",
+            "description": null,
+            "duration_value": null,
+            "duration_unit": "menit",
+            "price_note": "",
+            "price_amount": 35000,
+            "price_style": "k",
+            "old_price_amount": null,
+            "addon_price_amount": 15000,
+            "addon_text": "1 Cetakan DVD sama dengan sesi sebelumnya",
+            "tag": null,
+            "color": "#b7e433",
+            "features": [
+                "1 Cetakan DVD",
+                "Gif, Original Photo, Photo Frame",
+                "Bisa re-take foto kalian",
+                "1 Sesi 1 Tema Background"
+            ],
+            "is_featured": false
+        },
+        {
+            "id": "9",
+            "name": "Tema Koran",
+            "description": null,
+            "duration_value": null,
+            "duration_unit": "menit",
+            "price_note": "",
+            "price_amount": 25000,
+            "price_style": "k",
+            "old_price_amount": null,
+            "addon_price_amount": 15000,
+            "addon_text": "1 Cetakan koran",
+            "tag": null,
+            "color": "#8b8b8b",
+            "features": [
+                "1 Cetakan koran"
+            ],
+            "is_featured": false
+        }
+    ],
+    "frames": [
+        {
+            "id": "96",
+            "name": "Frame 01",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/01-1.webp"
+        },
+        {
+            "id": "97",
+            "name": "Frame 02",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/02-1-1.webp"
+        },
+        {
+            "id": "98",
+            "name": "Frame 03",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/02-1.webp"
+        },
+        {
+            "id": "99",
+            "name": "Frame 04",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/04-1.webp"
+        },
+        {
+            "id": "100",
+            "name": "Frame 05",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/06-1.webp"
+        },
+        {
+            "id": "101",
+            "name": "Frame 06",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/08-1.webp"
+        },
+        {
+            "id": "102",
+            "name": "Frame 07",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/08.webp"
+        },
+        {
+            "id": "103",
+            "name": "Frame 08",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/09.webp"
+        },
+        {
+            "id": "104",
+            "name": "Frame 09",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/10-1.webp"
+        },
+        {
+            "id": "105",
+            "name": "Frame 10",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/desain-baru-2026-aksata-33.webp"
+        },
+        {
+            "id": "106",
+            "name": "Frame 11",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/desain-baru-2026-aksata-58.webp"
+        },
+        {
+            "id": "107",
+            "name": "Frame 12",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/desain-baru-2026-aksata-59.webp"
+        },
+        {
+            "id": "108",
+            "name": "Frame 13",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/desain-baru-2026-aksata-2026-09-09t110456493.webp"
+        },
+        {
+            "id": "109",
+            "name": "Frame 14",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/desain-baru-2026-aksata-2026-09-28t213356330.webp"
+        },
+        {
+            "id": "110",
+            "name": "Frame 15",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/emily02-1.webp"
+        },
+        {
+            "id": "111",
+            "name": "Frame 16",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/emily04-1.webp"
+        },
+        {
+            "id": "112",
+            "name": "Frame 17",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/id-card-raw-1.webp"
+        },
+        {
+            "id": "113",
+            "name": "Frame 18",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/master-photostrip-13.webp"
+        },
+        {
+            "id": "114",
+            "name": "Frame 19",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/new-01-2.webp"
+        },
+        {
+            "id": "115",
+            "name": "Frame 20",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/new-02-2.webp"
+        },
+        {
+            "id": "116",
+            "name": "Frame 21",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/new-05-1.webp"
+        },
+        {
+            "id": "117",
+            "name": "Frame 22",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/new-07-1.webp"
+        },
+        {
+            "id": "118",
+            "name": "Frame 23",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/new-08-1.webp"
+        },
+        {
+            "id": "119",
+            "name": "Frame 24",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/NEW10.webp"
+        },
+        {
+            "id": "120",
+            "name": "Frame 25",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/NEW11.webp"
+        },
+        {
+            "id": "121",
+            "name": "Frame 26",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/spd01-1.webp"
+        },
+        {
+            "id": "122",
+            "name": "Frame 27",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/spd02-1.webp"
+        },
+        {
+            "id": "123",
+            "name": "Frame 28",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/spd03-1.webp"
+        },
+        {
+            "id": "124",
+            "name": "Frame 29",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "2R",
+            "color": "#0022ff",
+            "image": "img/frames/template-2r-aksata-cerita-22.webp"
+        },
+        {
+            "id": "125",
+            "name": "Frame 30",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "2R",
+            "color": "#0022ff",
+            "image": "img/frames/template-2r-aksata-cerita-23.webp"
+        },
+        {
+            "id": "126",
+            "name": "Frame 31",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "2R",
+            "color": "#0022ff",
+            "image": "img/frames/template-2r-aksata-cerita-24.webp"
+        },
+        {
+            "id": "127",
+            "name": "Frame 32",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "2R",
+            "color": "#0022ff",
+            "image": "img/frames/template-2r-aksata-cerita-26.webp"
+        },
+        {
+            "id": "128",
+            "name": "Frame 33",
+            "label": null,
+            "type": "Frame Biasa",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/vlt01-1.webp"
+        },
+        {
+            "id": "129",
+            "name": "Koran 01",
+            "label": null,
+            "type": "Frame Koran",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/koran-1-2.webp"
+        },
+        {
+            "id": "130",
+            "name": "Koran 02",
+            "label": null,
+            "type": "Frame Koran",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/koran-2-2.webp"
+        },
+        {
+            "id": "131",
+            "name": "Koran 03",
+            "label": null,
+            "type": "Frame Koran",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/koran-3-2.webp"
+        },
+        {
+            "id": "132",
+            "name": "Koran 04",
+            "label": null,
+            "type": "Frame Koran",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/new-06-1.webp"
+        },
+        {
+            "id": "133",
+            "name": "ID Card 01",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/1.webp"
+        },
+        {
+            "id": "134",
+            "name": "ID Card 02",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/2.webp"
+        },
+        {
+            "id": "135",
+            "name": "ID Card 03",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/3.webp"
+        },
+        {
+            "id": "136",
+            "name": "ID Card 04",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/4.webp"
+        },
+        {
+            "id": "137",
+            "name": "ID Card 05",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/5.webp"
+        },
+        {
+            "id": "138",
+            "name": "ID Card 06",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/6.webp"
+        },
+        {
+            "id": "139",
+            "name": "ID Card 07",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/7.webp"
+        },
+        {
+            "id": "140",
+            "name": "ID Card 08",
+            "label": null,
+            "type": "ID Card",
+            "size": "4R",
+            "color": "#0022ff",
+            "image": "img/frames/8.webp"
+        },
+        {
+            "id": "141",
+            "name": "DVD 01",
+            "label": null,
+            "type": "DVD Photobooth",
+            "size": null,
+            "color": "#0022ff",
+            "image": "img/frames/20260805-154227-1.webp"
+        },
+        {
+            "id": "142",
+            "name": "DVD 02",
+            "label": null,
+            "type": "DVD Photobooth",
+            "size": null,
+            "color": "#0022ff",
+            "image": "img/frames/20260805_154227.webp"
+        },
+        {
+            "id": "143",
+            "name": "DVD 03",
+            "label": null,
+            "type": "DVD Photobooth",
+            "size": null,
+            "color": "#0022ff",
+            "image": "img/frames/20260805_154236.webp"
+        },
+        {
+            "id": "144",
+            "name": "DVD 04",
+            "label": null,
+            "type": "DVD Photobooth",
+            "size": null,
+            "color": "#0022ff",
+            "image": "img/frames/20260805-155013-1.webp"
+        },
+        {
+            "id": "145",
+            "name": "DVD 05",
+            "label": null,
+            "type": "DVD Photobooth",
+            "size": null,
+            "color": "#0022ff",
+            "image": "img/frames/20260805_155013.webp"
+        },
+        {
+            "id": "146",
+            "name": "DVD 06",
+            "label": null,
+            "type": "DVD Photobooth",
+            "size": null,
+            "color": "#0022ff",
+            "image": "img/frames/20260805_160226.webp"
+        },
+        {
+            "id": "147",
+            "name": "DVD 07",
+            "label": null,
+            "type": "DVD Photobooth",
+            "size": null,
+            "color": "#0022ff",
+            "image": "img/frames/20260805_162445.webp"
+        }
+    ],
+    "gallery": [
+        {
+            "id": "60",
+            "title": "Kebun Binatang 💚",
+            "category": "Bestie",
+            "image": "img/gallery/pmIu0hFZ1bz4ii2kOnpUVG6Ehvech89V9UdTSRvP.webp"
+        },
+        {
+            "id": "61",
+            "title": "😱🥶",
+            "category": "Event",
+            "image": "img/gallery/IjrAwr0FZIeLom4fR5Cl7jzdmD6ikYTsoJvA8e6w.webp"
+        },
+        {
+            "id": "48",
+            "title": "Cowboy Besties",
+            "category": "Bestie",
+            "image": "img/gallery/cowboy-besties.webp"
+        },
+        {
+            "id": "49",
+            "title": "Denim Day Out",
+            "category": "Bestie",
+            "image": "img/gallery/denim-day-out.webp"
+        },
+        {
+            "id": "50",
+            "title": "Pink Squad",
+            "category": "Bestie",
+            "image": "img/gallery/pink-squad.webp"
+        },
+        {
+            "id": "51",
+            "title": "Soft Girls Club",
+            "category": "Bestie",
+            "image": "img/gallery/soft-girls-club.webp"
+        },
+        {
+            "id": "52",
+            "title": "Heart Check",
+            "category": "Couple",
+            "image": "img/gallery/heart-check.webp"
+        },
+        {
+            "id": "53",
+            "title": "Hold Me Closer",
+            "category": "Couple",
+            "image": "img/gallery/hold-me-closer.webp"
+        },
+        {
+            "id": "54",
+            "title": "Holo Vibes",
+            "category": "Couple",
+            "image": "img/gallery/holo-vibes.webp"
+        },
+        {
+            "id": "55",
+            "title": "Playful Crush",
+            "category": "Couple",
+            "image": "img/gallery/playful-crush.webp"
+        },
+        {
+            "id": "56",
+            "title": "Gang Goals",
+            "category": "Event",
+            "image": "img/gallery/gang-goals.webp"
+        },
+        {
+            "id": "57",
+            "title": "Squad Reunion",
+            "category": "Event",
+            "image": "img/gallery/squad-reunion.webp"
+        },
+        {
+            "id": "58",
+            "title": "Holo Photostrip",
+            "category": "Photostrip",
+            "image": "img/gallery/holo-photostrip.webp"
+        },
+        {
+            "id": "59",
+            "title": "Strip Cerita",
+            "category": "Photostrip",
+            "image": "img/gallery/strip-cerita.webp"
+        }
+    ],
+    "instagram": [
+        {
+            "id": "1",
+            "url": "https://www.instagram.com/reel/DU7WslEEwru/"
+        },
+        {
+            "id": "2",
+            "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
+        }
+    ],
+    "updated_at": "2026-10-30T14:30:57+07:00"
+}
