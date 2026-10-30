@@ -1,0 +1,333 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>Panduan Admin Aksata Cerita</title>
+<style>
+:root{--blue:#0022ff;--ink:#111;--muted:#666;--line:#e3e3df;--soft:#f6f6f3;--bg:#fff;--card:#fff;--warn:#b45309;--bad:#d22}
+@media (prefers-color-scheme:dark){:root{--ink:#f2f2f0;--muted:#a3a3a0;--line:#2c2c2e;--soft:#141416;--bg:#0d0d0f;--card:#19191c;--blue:#8a98ff}}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.6 "DM Sans",system-ui,-apple-system,"Segoe UI",sans-serif}
+a{color:var(--blue)}
+.wrap{display:grid;grid-template-columns:240px minmax(0,1fr);max-width:1080px;margin:0 auto}
+.side{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;padding:24px 18px;border-right:1px solid var(--line);background:var(--soft)}
+.side h1{font-size:17px;margin:0 0 4px;letter-spacing:-.3px}
+.side p{margin:0 0 16px;color:var(--muted);font-size:12px}
+.side a{display:block;padding:7px 10px;margin:2px 0;text-decoration:none;color:var(--ink);font-weight:600;font-size:13px;border-left:3px solid transparent}
+.side a.on,.side a:hover{border-color:var(--blue);color:var(--blue);background:#0022ff10}
+.prog{height:6px;background:var(--line);margin:16px 0 4px}.prog i{display:block;height:100%;background:var(--blue);width:0;transition:.3s}
+main{padding:28px 28px 90px}
+section{margin-bottom:46px;scroll-margin-top:16px}
+h2{font-size:24px;letter-spacing:-.6px;margin:0 0 6px}
+.sub{color:var(--muted);margin:0 0 18px}
+.card{border:1px solid var(--line);padding:18px;margin:12px 0;background:var(--card)}
+.note{border-left:4px solid var(--blue);background:#0022ff14;padding:12px 14px;margin:12px 0;color:var(--ink)}
+.note.warn{border-color:var(--warn);background:#b4530d12}
+.note.bad{border-color:var(--bad);background:#dd222212}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:12px 0}
+.flow span{border:1.5px solid var(--blue);padding:8px 12px;font-weight:700;font-size:13px;color:var(--ink)}
+.flow b{color:var(--blue)}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 12px}
+.tabs button{border:1.5px solid var(--line);background:var(--card);padding:8px 14px;font:700 13px inherit;cursor:pointer;color:var(--ink)}
+.tabs button.on{border-color:var(--blue);color:var(--blue)}
+.pane{display:none}.pane.on{display:block}
+ol,ul{padding-left:22px}li{margin:6px 0}
+details{border:1px solid var(--line);margin:8px 0;background:var(--card)}
+summary{cursor:pointer;padding:12px 14px;font-weight:700}
+details>div{padding:0 14px 14px}
+kbd,code{background:var(--soft);border:1px solid var(--line);padding:1px 6px;font:12px ui-monospace,Menlo,monospace;border-radius:3px}
+pre{background:#0d0d0f;color:#f2f2f0;padding:14px;overflow:auto;position:relative;margin:10px 0;font:12.5px/1.5 ui-monospace,Menlo,monospace}
+.copy{position:absolute;top:8px;right:8px;border:0;background:#ffffff22;color:#fff;padding:4px 10px;cursor:pointer;font-size:11px}
+.check{display:flex;gap:10px;align-items:flex-start;padding:9px 0;border-bottom:1px solid var(--line);cursor:pointer}
+.check input{width:20px;height:20px;margin-top:2px;accent-color:var(--blue);flex:none}
+.check.done span{text-decoration:line-through;color:var(--muted)}
+.links label{display:block;font-weight:700;font-size:12px;margin:10px 0 4px}
+.links input,.search{width:100%;padding:10px;border:1px solid var(--line);font:inherit;background:var(--card);color:var(--ink)}
+.links .row{display:flex;gap:6px}.links .row a{flex:none;padding:10px 12px;border:1.5px solid var(--blue);text-decoration:none;font-weight:700;font-size:12px}
+.pill{display:inline-block;padding:2px 8px;font-size:11px;font-weight:700;background:var(--blue);color:#fff;border-radius:20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:10px}
+.grid .card{margin:0}
+@media (max-width:820px){.wrap{display:block}.side{position:static;height:auto;border:0;border-bottom:1px solid var(--line)}main{padding:20px 16px 80px}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<aside class="side">
+  <h1>Panduan Admin</h1>
+  <p>Aksata Cerita · website photobooth</p>
+  <nav id="nav">
+    <a href="#mulai">1. Cara kerjanya</a>
+    <a href="#masuk">2. Masuk ke admin</a>
+    <a href="#tugas">3. Tugas sehari-hari</a>
+    <a href="#aturan">4. Aturan penting</a>
+    <a href="#masalah">5. Kalau ada masalah</a>
+    <a href="#rawat">6. Perawatan</a>
+    <a href="#serah">7. Checklist serah terima</a>
+  </nav>
+  <div class="prog"><i id="bar"></i></div>
+  <small id="barTxt" style="color:var(--muted)">Checklist: 0%</small>
+</aside>
+
+<main>
+<section id="mulai">
+  <h2>1. Cara kerjanya</h2>
+  <p class="sub">Tiga bagian, semuanya gratis. Kamu hanya perlu membuka <b>Admin</b>.</p>
+  <div class="grid">
+    <div class="card"><span class="pill">Admin</span><h3>Tempat mengubah isi</h3><p>Halaman khusus untuk menambah paket, frame, foto, dan mengubah teks. Di sinilah semua pekerjaan dilakukan.</p></div>
+    <div class="card"><span class="pill">Sheet</span><h3>Tempat data disimpan</h3><p>Google Sheet menyimpan semua isi. <b>Jangan diedit langsung</b> — pakai admin supaya aman.</p></div>
+    <div class="card"><span class="pill">Situs</span><h3>Yang dilihat pelanggan</h3><p>Website <b>aksatacerita.github.io</b>. Berubah setelah kamu menekan <b>Terbitkan ke situs</b>.</p></div>
+  </div>
+  <div class="flow"><span>Ubah di Admin</span><b>→</b><span>Terbitkan ke situs</span><b>→</b><span>Tunggu 1–2 menit</span><b>→</b><span>Situs berubah ✓</span></div>
+  <div class="note"><b>Ingat satu hal:</b> menyimpan di admin belum mengubah situs. Situs baru berubah setelah menekan <b>Terbitkan ke situs</b>.</div>
+
+  <div class="card links">
+    <b>Link penting (disimpan di browser ini saja)</b>
+    <p style="margin:4px 0;color:var(--muted);font-size:13px">Tempel link di sini supaya mudah dibuka lagi. Tidak dikirim ke mana pun.</p>
+    <label>Link Admin</label><div class="row"><input data-link="admin" placeholder="https://script.google.com/macros/s/…/exec"><a href="#" data-open="admin" target="_blank" rel="noopener">Buka</a></div>
+    <label>Link Google Sheet (hanya untuk melihat)</label><div class="row"><input data-link="sheet" placeholder="https://docs.google.com/spreadsheets/d/…"><a href="#" data-open="sheet" target="_blank" rel="noopener">Buka</a></div>
+    <label>Situs</label><div class="row"><input data-link="site" value="https://aksatacerita.github.io/"><a href="#" data-open="site" target="_blank" rel="noopener">Buka</a></div>
+  </div>
+</section>
+
+<section id="masuk">
+  <h2>2. Masuk ke admin</h2>
+  <p class="sub">Admin tidak punya username dan password sendiri. Masuknya lewat <b>akun Google</b>.</p>
+  <div class="card">
+    <ol>
+      <li>Buka <b>Link Admin</b> (simpan di bagian atas panduan ini).</li>
+      <li>Kalau diminta, login dengan akun Google yang <b>sudah didaftarkan sebagai admin</b>.</li>
+      <li>Pertama kali saja: Google meminta izin. Klik <b>Lanjutan → Buka … (tidak aman) → Izinkan</b>. Peringatan ini normal untuk aplikasi buatan sendiri.</li>
+      <li>Halaman admin terbuka dengan tab <b>Paket · Frame · Galeri · Instagram · Info Studio</b>.</li>
+    </ol>
+    <div class="note">Tidak perlu daftar atau membuat password. Kalau email belum terdaftar, yang tampil adalah pesan <code>Akses ditolak</code>.</div>
+  </div>
+  <details><summary>Menambah orang lain sebagai admin</summary><div>
+    <ol>
+      <li>Buka Google Sheet → klik <b>Bagikan</b> → tambahkan email orang itu sebagai <b>Editor</b>.</li>
+      <li>Buka editor Apps Script → <b>Setelan project</b> (ikon roda) → <b>Properti skrip</b>.</li>
+      <li>Edit <code>ADMIN_EMAILS</code>: tambahkan emailnya, dipisah koma. Contoh: <code>aksata@gmail.com,klien@gmail.com</code>.</li>
+      <li>Kalau tab Sheet dikunci (Lindungi sheet), tambahkan emailnya juga ke daftar yang boleh mengedit.</li>
+    </ol>
+  </div></details>
+  <details><summary>Browser saya login ke banyak akun Google</summary><div>
+    <p>Google bisa membuka link dengan akun yang salah dan menampilkan "tidak dapat membuka file". Dua cara:</p>
+    <ul><li>Buka <b>jendela privat/Incognito</b>, login hanya ke akun admin, lalu buka link admin.</li>
+    <li>Atau tambahkan nomor akun di link: ganti <code>/macros/s/</code> menjadi <code>/macros/u/<b>1</b>/s/</code> (coba 0, 1, 2, … sampai akun yang benar).</li></ul>
+  </div></details>
+  <details><summary>Bagaimana cara keluar?</summary><div>Admin mengikuti login Google di browser. Untuk keluar, logout dari akun Google atau tutup jendela privat.</div></details>
+</section>
+
+<section id="tugas">
+  <h2>3. Tugas sehari-hari</h2>
+  <p class="sub">Pilih apa yang mau kamu lakukan.</p>
+  <div class="tabs" id="tabs">
+    <button class="on" data-p="p1">Ubah harga / teks paket</button>
+    <button data-p="p2">Tambah / ganti foto</button>
+    <button data-p="p3">Sembunyikan atau hapus</button>
+    <button data-p="p4">Pindah urutan</button>
+    <button data-p="p5">Ubah info studio</button>
+    <button data-p="p6">Terbitkan</button>
+  </div>
+
+  <div class="pane on" id="p1"><div class="card"><ol>
+    <li>Buka tab <b>Paket</b>.</li>
+    <li>Klik <b>Ubah</b> pada paket yang dimaksud.</li>
+    <li>Ubah isiannya, lalu klik <b>Simpan</b>.</li>
+    <li>Klik <b>Terbitkan ke situs</b>.</li>
+  </ol>
+  <div class="note"><b>Harga diisi angka saja</b>, tanpa "Rp" dan tanpa titik. Contoh: <code>25000</code>. Tampilan "25K" atau "25.000" diatur di isian <b>Tampilan harga</b>.</div>
+  <p>Satu baris pada <b>Isi paket</b> = satu poin centang di kartu paket.</p></div></div>
+
+  <div class="pane" id="p2"><div class="card"><ol>
+    <li>Buka tab <b>Galeri</b> (atau <b>Frame</b>) → klik <b>+ Tambah foto</b>.</li>
+    <li>Isi judul dan kategori, lalu pilih fotonya.</li>
+    <li><b>Tunggu tulisan "Foto terunggah"</b> sebelum menekan Simpan.</li>
+    <li>Klik <b>Simpan</b>, lalu <b>Terbitkan ke situs</b>.</li>
+  </ol>
+  <p><b>Mengganti foto yang sudah ada:</b> klik <b>Ubah</b> pada item itu, pilih foto baru, tunggu "Foto terunggah", lalu Simpan.</p>
+  <div class="note">Foto besar tidak masalah — otomatis dikecilkan sebelum diunggah. Foto yang tidak dipakai lagi ikut dihapus dari situs saat <b>Terbitkan</b>.</div></div></div>
+
+  <div class="pane" id="p3"><div class="card">
+    <p><b>Sembunyikan sementara</b> (data tetap tersimpan, tidak tampil di situs):</p>
+    <ol><li>Klik <b>Pilih</b> → centang item → <b>Sembunyikan</b>. Atau klik <b>Ubah</b> pada satu item dan matikan "Tampilkan di situs".</li><li>Terbitkan.</li></ol>
+    <p><b>Hapus:</b> klik <b>Hapus</b> pada barisnya. Untuk banyak sekaligus: <b>Pilih</b> → centang → <b>Hapus</b>.</p>
+    <div class="note warn">Hapus tidak bisa dibatalkan di admin. Kalau ragu, pilih <b>Sembunyikan</b>.</div></div></div>
+
+  <div class="pane" id="p4"><div class="card"><ol>
+    <li>Cari simbol <b>⠿</b> di kiri tiap baris.</li>
+    <li><b>Tahan</b> simbol itu lalu geser ke posisi baru. Di HP, menahan di bagian kosong baris juga bisa.</li>
+    <li>Lepas. Muncul "Urutan tersimpan." lalu klik <b>Terbitkan ke situs</b>.</li>
+  </ol><p>Urutan di admin = urutan di situs.</p></div></div>
+
+  <div class="pane" id="p5"><div class="card">
+    <p>Buka tab <b>Info Studio</b>. Isinya: nama dan alamat, jam buka, kontak dan media sosial, kalimat pembuka, bagian yang ditampilkan, daftar pilihan cepat, dan judul untuk Google. Klik <b>Simpan</b> lalu <b>Terbitkan</b>.</p>
+    <p><b>Menggeser lokasi peta:</b></p>
+    <ol>
+      <li>Buka Google Maps, klik kanan titik lokasi studio, lalu klik angka koordinat paling atas untuk menyalinnya.</li>
+      <li>Isikan angka pertama ke <b>Latitude</b> dan angka kedua ke <b>Longitude</b>. Pakai titik sebagai desimal.</li>
+      <li>Kosongkan <b>Link Google Maps</b> agar tombolnya mengikuti koordinat.</li>
+    </ol>
+    <pre><button class="copy" data-copy="Jl. I Gusti Ngurah Rai Gg. 8 No. 90,&#10;Jepun, Kec. Tulungagung, Kabupaten Tulungagung, Jawa Timur 66218">Salin</button>Jl. I Gusti Ngurah Rai Gg. 8 No. 90,
+Jepun, Kec. Tulungagung, Kabupaten Tulungagung, Jawa Timur 66218</pre>
+    <p style="color:var(--muted);font-size:13px">↑ Contoh format alamat (dua baris).</p>
+  </div></div>
+
+  <div class="pane" id="p6"><div class="card"><ol>
+    <li>Setelah selesai mengubah, klik <b>Terbitkan ke situs</b> (kanan atas).</li>
+    <li>Tunggu pesan <b>"Terbit! Situs akan diperbarui dalam 1–2 menit."</b></li>
+    <li>Buka situs setelah 1–2 menit. Kalau belum berubah, refresh keras: <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd> (Mac: <kbd>Cmd</kbd>+<kbd>Shift</kbd>+<kbd>R</kbd>).</li>
+  </ol>
+  <div class="note">Tulisan oranye <i>"Ada perubahan yang belum diterbitkan"</i> muncul di atas setelah kamu menyimpan sesuatu.</div></div></div>
+</section>
+
+<section id="aturan">
+  <h2>4. Aturan penting</h2>
+  <p class="sub">Supaya situs tidak rusak.</p>
+  <div class="card">
+    <label class="check"><input type="checkbox" data-chk="r1"><span><b>Edit lewat admin saja</b>, jangan langsung di Google Sheet.</span></label>
+    <label class="check"><input type="checkbox" data-chk="r2"><span><b>Harga angka polos</b> (<code>35000</code>), tanpa Rp, titik, atau huruf.</span></label>
+    <label class="check"><input type="checkbox" data-chk="r3"><span><b>Selalu Terbitkan</b> setelah mengubah — kalau tidak, situs tidak berubah.</span></label>
+    <label class="check"><input type="checkbox" data-chk="r4"><span><b>Tunggu "Foto terunggah"</b> sebelum menekan Simpan di form foto.</span></label>
+    <label class="check"><input type="checkbox" data-chk="r5"><span><b>Hanya satu paket "unggulan"</b> — yang ditandai dengan kotak berbayang di situs.</span></label>
+    <label class="check"><input type="checkbox" data-chk="r6"><span><b>Link Instagram</b> harus berbentuk <code>instagram.com/p/…</code> atau <code>/reel/…</code>.</span></label>
+    <label class="check"><input type="checkbox" data-chk="r7"><span><b>Kategori galeri</b> diatur di Info Studio → Kategori galeri (pisahkan koma). Saringan kategori di situs hanya muncul bila ada lebih dari satu kategori yang terpakai.</span></label>
+    <label class="check"><input type="checkbox" data-chk="r8"><span><b>Jangan bagikan token GitHub</b> atau password akun kepada siapa pun.</span></label>
+  </div>
+</section>
+
+<section id="masalah">
+  <h2>5. Kalau ada masalah</h2>
+  <p class="sub">Ketik kata kunci untuk mencari.</p>
+  <input class="search" id="faqSearch" placeholder="Cari: ditolak, foto, terbitkan, peta…">
+  <div id="faq">
+    <details><summary>Muncul "Akses ditolak"</summary><div>Email yang login belum terdaftar sebagai admin, atau kamu login dengan akun Google yang salah. Cek akun yang aktif, atau minta pemilik menambahkan emailmu (lihat bagian <a href="#masuk">Masuk ke admin</a>).</div></details>
+    <details><summary>"Tidak dapat membuka file" / halaman Google Drive error</summary><div>Browser memakai akun Google yang salah. Buka link admin di jendela privat setelah login ke akun admin, atau tambahkan <code>/u/1/</code> (coba angka lain) pada link.</div></details>
+    <details><summary>Terbitkan gagal: "GitHub 401"</summary><div>Token GitHub salah atau dihapus. Buat token baru dan ganti nilai <code>GITHUB_TOKEN</code> (lihat <a href="#rawat">Perawatan</a>).</div></details>
+    <details><summary>Terbitkan gagal: "GitHub 403" atau "404"</summary><div><b>403:</b> izin token belum <i>Contents: Read and write</i>. <b>404:</b> nama repo di <code>GITHUB_REPO</code> keliru atau token tidak punya akses ke repo itu.</div></details>
+    <details><summary>Saya sudah Terbitkan tapi situs belum berubah</summary><div>Tunggu 2 menit lalu refresh keras. Kalau tetap sama, cek halaman <b>Actions</b>/<b>Pages</b> repo GitHub untuk melihat apakah build berjalan.</div></details>
+    <details><summary>Foto tampil kotak "!" atau tidak muncul di admin</summary><div>Foto belum selesai diunggah atau gagal dimuat. Hapus item itu dan unggah ulang, tunggu sampai muncul "Foto terunggah".</div></details>
+    <details><summary>Harga tampil 0 atau aneh</summary><div>Harga harus angka polos. Buka <b>Ubah</b> pada paket dan isi ulang, mis. <code>25000</code>.</div></details>
+    <details><summary>Lokasi peta salah</summary><div>Periksa <b>Latitude</b> dan <b>Longitude</b> di Info Studio (pakai titik, bukan koma) dan kosongkan <b>Link Google Maps</b>. Simpan lalu Terbitkan.</div></details>
+    <details><summary>Saya salah menghapus atau mengubah sesuatu</summary><div>Di Google Sheet: <b>File → Riwayat versi → Lihat riwayat versi</b>, pilih versi sebelum kesalahan, lalu <b>Pulihkan versi ini</b>. Setelah itu buka admin, periksa, dan Terbitkan.</div></details>
+    <details><summary>Perubahan saya tidak muncul di admin</summary><div>Refresh halaman admin. Admin membaca langsung dari Sheet.</div></details>
+  </div>
+</section>
+
+<section id="rawat">
+  <h2>6. Perawatan</h2>
+  <details open><summary>Token GitHub (izin untuk tombol Terbitkan)</summary><div>
+    <p>Dipakai admin untuk menulis ke repo situs. Dibuat tanpa tanggal kedaluwarsa. Ganti kalau tokennya bocor atau tidak sengaja terhapus:</p>
+    <ol>
+      <li>Login ke GitHub akun Aksata → <code>Settings → Developer settings → Personal access tokens → Fine-grained tokens</code>.</li>
+      <li>Buat token baru: repo hanya <code>aksatacerita.github.io</code>, izin <b>Contents: Read and write</b>.</li>
+      <li>Editor Apps Script → Setelan project → Properti skrip → ganti nilai <code>GITHUB_TOKEN</code> → Simpan.</li>
+      <li>Hapus token lama di GitHub.</li>
+    </ol></div></details>
+  <details><summary>Cadangan data</summary><div>Isi situs tersimpan di dua tempat: <b>Google Sheet</b> (ada <i>Riwayat versi</i>) dan <b>repo GitHub</b> (setiap Terbitkan = satu commit yang bisa ditelusuri). Cukup dua itu.</div></details>
+  <details><summary>Batas layanan gratis</summary><div>Pemakaian normal jauh di bawah batas. Pengunjung situs tidak memanggil Apps Script, hanya file statis di GitHub Pages, jadi kuota Google hanya terpakai saat admin bekerja.</div></details>
+  <details><summary>Domain sendiri (misalnya .com atau .id)</summary><div>Opsional. Beli domain atas nama pemilik usaha, lalu arahkan ke GitHub Pages di <code>Settings → Pages → Custom domain</code> pada repo situs.</div></details>
+</section>
+
+<section id="serah">
+  <h2>7. Checklist serah terima</h2>
+  <p class="sub">Centang yang sudah selesai. Tersimpan otomatis di browser ini.</p>
+  <div class="card" id="handover">
+    <label class="check"><input type="checkbox" data-chk="h1"><span>Pemilik usaha menerima email akun Aksata dan membuka admin sekali bersama pengembang</span></label>
+    <label class="check"><input type="checkbox" data-chk="h2"><span>Password <b>Gmail</b> Aksata diganti oleh pemilik usaha</span></label>
+    <label class="check"><input type="checkbox" data-chk="h3"><span>Nomor HP dan email pemulihan <b>Gmail</b> diganti ke milik pemilik usaha</span></label>
+    <label class="check"><input type="checkbox" data-chk="h4"><span>Verifikasi 2 langkah <b>Gmail</b> diaktifkan di HP pemilik usaha</span></label>
+    <label class="check"><input type="checkbox" data-chk="h5"><span>Password, nomor HP, dan 2FA <b>GitHub</b> juga sudah diganti</span></label>
+    <label class="check"><input type="checkbox" data-chk="h6"><span>Pemilik usaha mencoba sendiri: ubah satu hal → <b>Terbitkan</b> → situs berubah</span></label>
+    <label class="check"><input type="checkbox" data-chk="h7"><span>Email pengembang tetap ditambahkan sebagai admin (untuk perawatan) atau dihapus sesuai kesepakatan</span></label>
+    <label class="check"><input type="checkbox" data-chk="h8"><span>Semua password disimpan di tempat aman (password manager atau catatan fisik)</span></label>
+    <label class="check"><input type="checkbox" data-chk="h9"><span>Tab-tab Google Sheet sudah dikunci (Lindungi sheet)</span></label>
+  </div>
+</section>
+</main>
+</div>
+
+<script>
+(function () {
+  var $ = function (s, r) { return (r || document).querySelector(s); };
+  var $$ = function (s, r) { return Array.prototype.slice.call((r || document).querySelectorAll(s)); };
+  var store = {
+    get: function (k) { try { return localStorage.getItem('aksata_guide_' + k); } catch (e) { return null; } },
+    set: function (k, v) { try { localStorage.setItem('aksata_guide_' + k, v); } catch (e) {} }
+  };
+
+  // Tab tugas
+  $$('#tabs button').forEach(function (b) {
+    b.addEventListener('click', function () {
+      $$('#tabs button').forEach(function (x) { x.classList.toggle('on', x === b); });
+      $$('.pane').forEach(function (p) { p.classList.toggle('on', p.id === b.dataset.p); });
+    });
+  });
+
+  // Checklist (tersimpan)
+  var checks = $$('[data-chk]');
+  var progress = function () {
+    var hand = $$('#handover [data-chk]');
+    var done = hand.filter(function (c) { return c.checked; }).length;
+    var pct = hand.length ? Math.round(done * 100 / hand.length) : 0;
+    $('#bar').style.width = pct + '%';
+    $('#barTxt').textContent = 'Serah terima: ' + pct + '%';
+  };
+  checks.forEach(function (c) {
+    c.checked = store.get('chk_' + c.dataset.chk) === '1';
+    c.closest('.check').classList.toggle('done', c.checked);
+    c.addEventListener('change', function () {
+      store.set('chk_' + c.dataset.chk, c.checked ? '1' : '0');
+      c.closest('.check').classList.toggle('done', c.checked);
+      progress();
+    });
+  });
+  progress();
+
+  // Link penting (tersimpan di browser)
+  $$('[data-link]').forEach(function (i) {
+    var saved = store.get('link_' + i.dataset.link);
+    if (saved) i.value = saved;
+    var sync = function () {
+      store.set('link_' + i.dataset.link, i.value.trim());
+      var a = $('[data-open="' + i.dataset.link + '"]');
+      var ok = /^https:\/\//.test(i.value.trim());
+      a.href = ok ? i.value.trim() : '#';
+      a.style.opacity = ok ? 1 : .4;
+    };
+    i.addEventListener('input', sync); sync();
+  });
+
+  // Tombol salin
+  $$('[data-copy]').forEach(function (b) {
+    b.addEventListener('click', function () {
+      var t = b.dataset.copy.replace(/&#10;/g, '\n');
+      var done = function () { b.textContent = 'Tersalin ✓'; setTimeout(function () { b.textContent = 'Salin'; }, 1500); };
+      if (navigator.clipboard) navigator.clipboard.writeText(t).then(done, done); else done();
+    });
+  });
+
+  // Cari FAQ
+  $('#faqSearch').addEventListener('input', function (e) {
+    var q = e.target.value.toLowerCase().trim();
+    $$('#faq details').forEach(function (d) {
+      var show = !q || d.textContent.toLowerCase().indexOf(q) !== -1;
+      d.style.display = show ? '' : 'none';
+      if (q && show) d.open = true;
+    });
+  });
+
+  // Menu samping ikut posisi gulir
+  var links = $$('#nav a');
+  var onScroll = function () {
+    var pos = window.scrollY + 120, cur = links[0];
+    links.forEach(function (a) { var s = $(a.getAttribute('href')); if (s && s.offsetTop <= pos) cur = a; });
+    links.forEach(function (a) { a.classList.toggle('on', a === cur); });
+  };
+  window.addEventListener('scroll', onScroll, { passive: true }); onScroll();
+})();
+</script>
+</body>
+</html>
