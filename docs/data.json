@@ -126,25 +126,6 @@
       "is_featured": false
     },
     {
-      "id": "40c91bf1-cca1-44e0-a50a-82a95a698c1d",
-      "name": "coba",
-      "description": "eesa",
-      "duration_value": 1,
-      "duration_unit": "menit",
-      "price_note": "Per sesihtgg",
-      "price_amount": 25000,
-      "price_style": "k",
-      "old_price_amount": 300000,
-      "addon_price_amount": 200,
-      "addon_text": "baru",
-      "tag": "Baru",
-      "color": "#14b8a6",
-      "features": [
-        "coba"
-      ],
-      "is_featured": false
-    },
-    {
       "id": "9",
       "name": "Tema Koran",
       "description": "",
@@ -730,5 +711,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-10-30T17:52:30.085Z"
+  "updated_at": "2026-10-30T18:06:25.369Z"
 }
