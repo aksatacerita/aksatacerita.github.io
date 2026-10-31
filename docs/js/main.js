@@ -19,7 +19,6 @@
     app.innerHTML = window.renderSite(data);
     window.applyMeta(data);
     window.initSite();
-    if (window.initMotion) window.initMotion();
     if (y) window.scrollTo(0, y);
   };
 
