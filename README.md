@@ -29,7 +29,6 @@ Website photobooth **Aksata Cerita** (Tulungagung): landing page statis yang cep
 - **Admin** — tambah / ubah / hapus / sembunyikan, mode pilih massal, geser urutan (mouse & sentuh), unggah foto (otomatis dikecilkan di browser), info studio.
 - **Perubahan tampil dalam detik** — situs membaca isi terbaru langsung dari Sheet; `data.json` hanya tampilan awal dan cadangan.
 - **Cadangan permanen** — tombol *Terbitkan* menyalin data & foto ke repo ini lewat satu commit.
-- **Animasi ringan** — muncul saat digulir, kartu paket tilt, kolase hero parallax; menghormati `prefers-reduced-motion`.
 - **Tangguh** — kalau Google bermasalah, situs tetap tampil dari `data.json`.
 
 ## Cara kerja
@@ -57,13 +56,12 @@ docs/                      Situs statis (GitHub Pages: branch main, folder /docs
 ├── panduan.html           Panduan interaktif untuk admin
 ├── data.json              Salinan isi situs (diperbarui oleh Terbitkan)
 ├── .nojekyll              Nonaktifkan Jekyll (build lebih cepat & stabil)
-├── css/                   reset.css, site.css, motion.css
+├── css/                   reset.css, site.css
 ├── js/
 │   ├── config.js          DATA_URL & API_URL (sumber data)
 │   ├── main.js            Muat data.json → render → segarkan dari Sheet
 │   ├── render.js          Mengubah data menjadi HTML halaman
-│   ├── interactions.js    Menu, drawer pesan, filter, booth, dll.
-│   └── motion.js          Animasi (dipanggil setiap render)
+│   └── interactions.js    Menu, drawer pesan, filter, booth, dll.
 ├── img/frames, img/gallery
 └── assets/, favicon.svg
 
@@ -119,8 +117,7 @@ Situs tidak punya langkah build. Ubah berkas lalu muat ulang. Untuk mematikan pe
 
 Catatan penting:
 
-- Perubahan tampilan ada di `render.js` (HTML), `site.css` / `motion.css` (gaya), `interactions.js` / `motion.js` (perilaku). Semuanya dijalankan ulang setiap data diperbarui — hindari listener global yang menumpuk.
-- Animasi hanya memakai `opacity`, `translate`, `scale` (properti individual) agar tidak bentrok dengan `transform` yang sudah dipakai komponen lain.
+- Perubahan tampilan ada di `render.js` (HTML), `site.css` (gaya), `interactions.js` (perilaku). Semuanya dijalankan ulang setiap data diperbarui — hindari listener global yang menumpuk.
 
 ## Deploy Apps Script
 

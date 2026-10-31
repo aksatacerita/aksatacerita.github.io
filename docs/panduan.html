@@ -277,7 +277,6 @@ Jepun, Kec. Tulungagung, Kabupaten Tulungagung, Jawa Timur 66218</pre>
     <li><b>Trafik sangat besar</b>: kuota harian Google bisa habis; situs tetap tampil dari salinan statis.</li>
     <li><b>Tidak ada yang memantau</b>: pastikan ada satu orang yang dihubungi bila ada gangguan.</li></ul></div></details>
   <details><summary>Domain sendiri (misalnya .com atau .id)</summary><div>Opsional, atas nama pemilik usaha. Setelah dibeli, arahkan ke GitHub Pages di <code>Settings → Pages → Custom domain</code> pada repo situs. Untuk cetakan permanen (banner, kartu nama, QR) domain sendiri lebih aman daripada link pendek gratis.</div></details>
-  <details><summary>Animasi di situs</summary><div>Animasi hanya tampilan di browser pengunjung (tidak memengaruhi Sheet atau Apps Script). Pengunjung yang mengaktifkan "kurangi gerakan" di perangkatnya otomatis melihat situs tanpa animasi.</div></details>
 </section>
 
 <section id="serah">
@@ -328,7 +327,6 @@ npx @google/clasp update-deployment &lt;deploymentId&gt; -V &lt;versi&gt; -d "Ad
 <pre><button class="copy" data-copy="cd docs &amp;&amp; python3 -m http.server 8000">Salin</button>cd docs &amp;&amp; python3 -m http.server 8000</pre></div>
   <div class="card"><b>Catatan teknis</b><ul>
     <li><code>docs/.nojekyll</code> menonaktifkan Jekyll → build Pages lebih cepat dan stabil.</li>
-    <li>Animasi: <code>css/motion.css</code> + <code>js/motion.js</code> (hanya opacity/translate/scale; hormati <code>prefers-reduced-motion</code>; tidak berkedip saat data diperbarui).</li>
     <li>Render halaman ada di <code>js/render.js</code>; data diambil lewat <code>js/main.js</code> (data.json dulu, lalu Sheet).</li>
     <li>Sheet memakai format <b>teks biasa</b> pada kolom teks agar locale Indonesia tidak merusak angka desimal (mis. koordinat).</li>
     <li>Terbitkan = satu commit lewat Git Data API: <code>docs/data.json</code> + foto baru; foto yang tak terpakai dihapus.</li></ul></div>
