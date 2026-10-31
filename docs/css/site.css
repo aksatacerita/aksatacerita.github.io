@@ -209,3 +209,10 @@ footer { background:#0d0d0d;color:white;padding:65px 0 25px; }.footer-top{displa
 .section-heading.compact .limited-note{margin:20px auto 0;font:600 11px "Space Grotesk";letter-spacing:1.5px;text-transform:uppercase;color:var(--muted)}
 
 .credit a{text-decoration:underline;text-underline-offset:3px;font-weight:700}.credit a:hover{color:var(--orange)}
+
+/* Kartu cadangan feed Instagram (tampil bila embed Instagram belum/tidak termuat) */
+.ig-item blockquote.instagram-media{display:grid;place-items:center;min-height:220px;padding:28px 20px;background:linear-gradient(135deg,#f9ce34 0%,#ee2a7b 55%,#6228d7 100%);color:#fff;text-align:center;border:0;border-radius:6px}
+.ig-item blockquote.instagram-media a{color:#fff;font:700 14px "Space Grotesk",sans-serif;border:1.5px solid #fff;padding:11px 18px;border-radius:40px}
+.ig-item blockquote.instagram-media a:after{content:" ↗"}
+.ig-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:24px}
+.ig-item{flex:0 1 380px;width:100%;max-width:380px}

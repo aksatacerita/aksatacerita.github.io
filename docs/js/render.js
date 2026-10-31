@@ -200,15 +200,22 @@
       address: { '@type': 'PostalAddress', streetAddress: String(s.address || '').replace(/\n/g, ' '), addressLocality: s.city, addressCountry: 'ID' },
       sameAs: ['https://instagram.com/' + s.instagram, s.tiktok ? 'https://www.tiktok.com/@' + s.tiktok : null, s.facebook || null].filter(Boolean),
     };
+    const old = document.getElementById('ld-json'); if (old) old.remove();
     const tag = document.createElement('script');
+    tag.id = 'ld-json';
     tag.type = 'application/ld+json';
     tag.textContent = JSON.stringify(ld);
     document.head.appendChild(tag);
     if (s.show_instagram === '1' && (data.instagram || []).length) {
-      const embed = document.createElement('script');
-      embed.async = true;
-      embed.src = 'https://www.instagram.com/embed.js';
-      document.body.appendChild(embed);
+      // Pertama kali: muat embed.js (memproses otomatis). Gambar ulang: minta Instagram memproses blok yang baru.
+      if (window.instgrm && window.instgrm.Embeds) window.instgrm.Embeds.process();
+      else if (!document.getElementById('ig-embed')) {
+        const embed = document.createElement('script');
+        embed.id = 'ig-embed';
+        embed.async = true;
+        embed.src = 'https://www.instagram.com/embed.js';
+        document.body.appendChild(embed);
+      }
     }
   };
 })();
