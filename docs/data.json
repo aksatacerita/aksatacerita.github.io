@@ -559,60 +559,6 @@
       "size": "",
       "color": "#0022ff",
       "image": "img/frames/20260805-154227-1.webp"
-    },
-    {
-      "id": "142",
-      "name": "DVD 02",
-      "label": "",
-      "type": "DVD Photobooth",
-      "size": "",
-      "color": "#0022ff",
-      "image": "img/frames/20260805_154227.webp"
-    },
-    {
-      "id": "143",
-      "name": "DVD 03",
-      "label": "",
-      "type": "DVD Photobooth",
-      "size": "",
-      "color": "#0022ff",
-      "image": "img/frames/20260805_154236.webp"
-    },
-    {
-      "id": "144",
-      "name": "DVD 04",
-      "label": "",
-      "type": "DVD Photobooth",
-      "size": "",
-      "color": "#0022ff",
-      "image": "img/frames/20260805-155013-1.webp"
-    },
-    {
-      "id": "145",
-      "name": "DVD 05",
-      "label": "",
-      "type": "DVD Photobooth",
-      "size": "",
-      "color": "#0022ff",
-      "image": "img/frames/20260805_155013.webp"
-    },
-    {
-      "id": "146",
-      "name": "DVD 06",
-      "label": "",
-      "type": "DVD Photobooth",
-      "size": "",
-      "color": "#0022ff",
-      "image": "img/frames/20260805_160226.webp"
-    },
-    {
-      "id": "147",
-      "name": "DVD 07",
-      "label": "",
-      "type": "DVD Photobooth",
-      "size": "",
-      "color": "#0022ff",
-      "image": "img/frames/20260805_162445.webp"
     }
   ],
   "gallery": [
@@ -711,5 +657,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-10-30T18:06:25.369Z"
+  "updated_at": "2026-11-02T07:29:56.146Z"
 }
