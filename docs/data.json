@@ -143,6 +143,25 @@
         "1 Cetakan koran"
       ],
       "is_featured": false
+    },
+    {
+      "id": "a6b5ed85-4e13-44b9-b0c4-5ab8649a94cb",
+      "name": "Request Frame",
+      "description": "",
+      "duration_value": null,
+      "duration_unit": "menit",
+      "price_note": "Mulai dari",
+      "price_amount": 30000,
+      "price_style": "k",
+      "old_price_amount": null,
+      "addon_price_amount": null,
+      "addon_text": "",
+      "tag": "",
+      "color": "#0022ff",
+      "features": [
+        "2 Cetakan 2R atau 1 Cetakan 4R"
+      ],
+      "is_featured": false
     }
   ],
   "frames": [
@@ -657,5 +676,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-11-02T07:29:56.146Z"
+  "updated_at": "2026-11-02T14:38:03.110Z"
 }
