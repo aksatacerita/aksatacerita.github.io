@@ -51,7 +51,8 @@ var SCHEMA = {
     { k: 'tag', h: 'tag', t: 'text', list: 'options_package_tag', label: 'Label (Best Seller, Promo…)' },
     { k: 'color', h: 'warna', t: 'color', label: 'Warna kartu' },
     { k: 'features', h: 'fitur', t: 'list', label: 'Isi paket (satu baris satu poin)' },
-    { k: 'is_featured', h: 'unggulan', t: 'bool', label: 'Paket unggulan' }
+    { k: 'is_featured', h: 'unggulan', t: 'bool', label: 'Paket unggulan' },
+    { k: 'price_max_amount', h: 'harga_sampai', t: 'number', after: 'price_amount', label: 'Harga sampai (opsional, untuk rentang mis. 30K – 50K)' }
   ] },
   frame: { sheet: 'Frame', label: 'Frame', singular: 'frame', imgDir: 'frames', titleKey: 'name', fields: [
     { k: 'active', h: 'aktif', t: 'bool', label: 'Tampilkan di situs' },
@@ -208,6 +209,7 @@ function writeRows_(kind, rows) {
   var sh = sheet_(def.sheet);
   var width = def.fields.length + 1;
   formatSheet_(kind);
+  sh.getRange(1, 1, 1, width).setValues([['id'].concat(def.fields.map(function (f) { return f.h; }))]);
   var last = sh.getLastRow();
   if (last > 1) sh.getRange(2, 1, last - 1, width).clearContent();
   if (rows.length) {
@@ -251,6 +253,7 @@ function buildPublicData_() {
         id: p.id, name: p.name, description: p.description,
         duration_value: p.duration_value === '' ? null : p.duration_value, duration_unit: p.duration_unit || 'menit',
         price_note: p.price_note, price_amount: p.price_amount === '' ? 0 : p.price_amount, price_style: p.price_style || 'k',
+        price_max_amount: p.price_max_amount === '' ? null : p.price_max_amount,
         old_price_amount: p.old_price_amount === '' ? null : p.old_price_amount,
         addon_price_amount: p.addon_price_amount === '' ? null : p.addon_price_amount, addon_text: p.addon_text,
         tag: p.tag, color: p.color,
@@ -450,7 +453,7 @@ function importFromGithub() {
   var d = JSON.parse(res.getContentText());
   writeRows_('paket', (d.packages || []).map(function (p) {
     return { id: p.id, active: true, name: p.name, description: p.description || '', duration_value: p.duration_value, duration_unit: p.duration_unit,
-      price_note: p.price_note || '', price_amount: p.price_amount, price_style: p.price_style, old_price_amount: p.old_price_amount,
+      price_note: p.price_note || '', price_amount: p.price_amount, price_style: p.price_style, price_max_amount: p.price_max_amount, old_price_amount: p.old_price_amount,
       addon_price_amount: p.addon_price_amount, addon_text: p.addon_text || '', tag: p.tag || '', color: p.color, features: (p.features || []).join('\n'), is_featured: p.is_featured };
   }));
   writeRows_('frame', (d.frames || []).map(function (f) {

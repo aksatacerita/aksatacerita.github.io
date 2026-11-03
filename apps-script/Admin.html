@@ -125,7 +125,7 @@ label.f>span.req{color:var(--red)}
 
   /* ---------- Daftar ---------- */
   function subtitle(kind, r) {
-    if (kind === 'paket') return 'Rp' + Number(r.price_amount || 0).toLocaleString('id-ID') + (r.duration_value ? ' · ' + r.duration_value + ' ' + (r.duration_unit || 'menit') : '');
+    if (kind === 'paket') return 'Rp' + Number(r.price_amount || 0).toLocaleString('id-ID') + (r.price_max_amount ? ' – Rp' + Number(r.price_max_amount).toLocaleString('id-ID') : '') + (r.duration_value ? ' · ' + r.duration_value + ' ' + (r.duration_unit || 'menit') : '');
     if (kind === 'frame') return [r.type, r.size, r.label].filter(Boolean).join(' · ');
     if (kind === 'galeri') return r.category || '';
     return '';
@@ -265,6 +265,15 @@ label.f>span.req{color:var(--red)}
     }
     return '<label class="f">' + esc(f.label) + req + inner + '</label>';
   }
+  // Field ber-'after' ditampilkan tepat setelah field tujuannya (urutan kolom Sheet tidak berubah)
+  function orderedFields(def) {
+    var base = def.fields.filter(function (f) { return !f.after; }), out = [];
+    base.forEach(function (f) {
+      out.push(f);
+      def.fields.forEach(function (g) { if (g.after === f.k) out.push(g); });
+    });
+    return out;
+  }
   var editing = null;
   function openForm(kind, id) {
     var def = S.schema[kind];
@@ -272,7 +281,7 @@ label.f>span.req{color:var(--red)}
     editing = { kind: kind, id: id };
     var vals = rec || { active: true, duration_unit: 'menit', price_style: 'k', color: '#0022ff' };
     $('#card').innerHTML = '<h3>' + (id ? 'Ubah ' : 'Tambah ') + esc(def.singular) + '</h3><form id="form">' +
-      def.fields.map(function (f) { return fieldHtml(f, vals[f.k]); }).join('') +
+      orderedFields(def).map(function (f) { return fieldHtml(f, vals[f.k]); }).join('') +
       '<div class="err" id="ferr"></div><div class="foot"><button type="button" class="btn ghost" id="cancel">Batal</button><button class="btn" id="save">Simpan</button></div></form>';
     $('#modal').classList.add('on');
   }

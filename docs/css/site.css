@@ -78,7 +78,7 @@ h1 em,h2 i { color:var(--blue);font-family:Georgia,serif;font-weight:400; }
 .section-heading>p { margin-top:20px;max-width:420px;color:var(--muted);line-height:1.6;font-size:14px; }
 .kicker { color:var(--blue);font:700 10px "Space Grotesk";letter-spacing:2px;display:block;margin-bottom:22px; }
 .package-grid { display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px;max-width:1060px;margin-inline:auto; }
-.package-card { min-height:405px;border:1.5px solid #ddd;padding:23px;display:flex;flex-direction:column;justify-content:space-between;transition:.25s;position:relative;overflow:hidden; }
+.package-card { min-height:405px;border:1.5px solid #ddd;padding:23px;display:flex;flex-direction:column;justify-content:flex-start;transition:.25s;position:relative;overflow:hidden; }
 .package-card:after { content:"";position:absolute;width:120px;height:120px;border-radius:50%;background:var(--card,#ddd);opacity:.1;right:-30px;top:60px; }
 .package-card.blue{--card:var(--blue)}.package-card.orange{--card:var(--orange)}.package-card.pink{--card:var(--pink)}
 .package-card.active { border:2px solid var(--card);transform:translateY(-8px);box-shadow:8px 8px 0 var(--card); }
@@ -88,7 +88,11 @@ h1 em,h2 i { color:var(--blue);font-family:Georgia,serif;font-weight:400; }
 .package-card p { font-size:11px;color:#777;margin:0; }
 .package-card strong { font:700 51px "Space Grotesk";letter-spacing:-4px; }
 .package-card strong small { font-size:16px;letter-spacing:0;margin-right:4px; }
-.package-card ul { padding:0;list-style:none;border-top:1px solid #ddd;margin:0; }
+.package-card ul { padding:0;list-style:none;border-top:1px solid #ddd;margin:14px 0 0;flex:1; }
+.package-card .package-note { min-height:14px; }
+.package-card strong.has-range { font-size:38px;letter-spacing:-3px;white-space:nowrap; }
+.package-select { margin-top:16px; }
+.hero h1 em { white-space:nowrap; }
 .package-card li { padding:9px 0;border-bottom:1px solid #eee;font-size:12px; }
 .package-card li span { color:var(--card);margin-right:9px; }
 .package-select { color:var(--card);font:700 12px "Space Grotesk";display:flex;justify-content:space-between;border:0;background:none;padding:0;width:100%; }
