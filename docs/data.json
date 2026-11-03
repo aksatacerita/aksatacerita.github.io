@@ -155,7 +155,7 @@
       "description": "",
       "duration_value": null,
       "duration_unit": "menit",
-      "price_note": "Mulai dari",
+      "price_note": "",
       "price_amount": 30000,
       "price_style": "k",
       "price_max_amount": 50000,
@@ -684,5 +684,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-11-03T05:18:42.530Z"
+  "updated_at": "2026-11-03T05:19:28.943Z"
 }
