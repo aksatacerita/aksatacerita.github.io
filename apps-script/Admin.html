@@ -77,6 +77,20 @@ label.f>span.req{color:var(--red)}
 #toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#111;color:#fff;padding:11px 18px;font-size:13px;z-index:90;display:none;max-width:90vw}
 #toast.on{display:block}#toast.bad{background:var(--red)}
 #gate{padding:50px 20px;text-align:center}
+.card.wide{width:min(900px,100%)}
+.formgrid{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:26px;align-items:start}
+.pvwrap{position:sticky;top:10px}.pvwrap>b{display:block;font:700 10px "DM Sans";letter-spacing:1.5px;color:var(--blue);margin-bottom:8px}
+.pv{border:1.5px solid #ddd;border-top:5px solid var(--c,#0022ff);padding:18px;background:#fff}
+.pv h4{margin:0 0 2px;font:600 19px "Space Grotesk",sans-serif}.pv .pn{font-size:11px;color:#777;min-height:14px}
+.pv .pp{font:700 34px "Space Grotesk",sans-serif;letter-spacing:-2px;margin:2px 0 10px}.pv .pp small{font-size:13px;letter-spacing:0;margin-right:3px}
+.pv ul{list-style:none;margin:0;padding:0;border-top:1px solid #ddd}.pv li{padding:7px 0;border-bottom:1px solid #eee;font-size:12px}.pv li:before{content:"✓ ";color:var(--c)}
+.pv .pa{border-top:1px dashed #ccc;margin-top:8px;padding-top:8px;font-size:12px;color:#666}.pv .pa b{color:var(--c)}
+.pvwrap small.hint{display:block;margin-top:8px;color:#888;font-size:11px}
+.hint{display:block;font-weight:400;font-size:11px;color:#888;margin-top:5px}
+details.more{border:1px solid var(--line);background:#fafafa;padding:12px 14px;margin:6px 0 14px}
+details.more summary{cursor:pointer;font-weight:700;font-size:13px}details.more[open] summary{margin-bottom:14px}
+.toggle{display:block;font-size:12px;color:var(--blue);font-weight:700;background:none;border:0;padding:0;margin:-6px 0 14px;cursor:pointer}
+@media (max-width:760px){.formgrid{grid-template-columns:1fr}.pvwrap{position:static}}
 .btn.help{background:#fff;color:#111;border:1px solid #ccc}
 .btn.help:hover{border-color:var(--blue);color:var(--blue)}
 .guide ol{margin:0 0 14px;padding-left:20px}.guide li{margin-bottom:8px;line-height:1.55}
@@ -310,16 +324,76 @@ main{padding:16px 12px 90px}
     });
     return out;
   }
+  // Tampilan form paket: yang penting di depan, sisanya di "Pengaturan lain"
+  var UI = {
+    active: ['Tampilkan di situs', ''],
+    name: ['Nama paket', 'Contoh: Photostrip'],
+    price_amount: ['Harga', 'Tulis angka saja, tanpa titik. Contoh: 25000'],
+    price_max_amount: ['Sampai harga', 'Contoh: 50000. Akan tampil "30K – 50K".'],
+    features: ['Isi paket', 'Satu baris = satu centang di kartu. Tekan Enter untuk baris baru.'],
+    color: ['Warna kartu', ''],
+    description: ['Deskripsi singkat', 'Kalimat pendek di bawah nama paket. Boleh dikosongkan.'],
+    duration_value: ['Lama sesi', 'Boleh dikosongkan.'],
+    duration_unit: ['Satuan lama sesi', ''],
+    price_note: ['Tulisan kecil di atas harga', 'Contoh: Mulai dari. Pilih tombol di bawah atau ketik sendiri.'],
+    price_style: ['Bentuk tulisan harga', ''],
+    old_price_amount: ['Harga lama (dicoret)', 'Isi kalau sedang promo. Boleh dikosongkan.'],
+    addon_price_amount: ['Harga tambahan (add-on)', 'Contoh: 15000, untuk cetak tambahan. Boleh dikosongkan.'],
+    addon_text: ['Keterangan tambahan', 'Contoh: 1 Cetakan sama dengan sesi sebelumnya'],
+    tag: ['Label di kartu', 'Contoh: Best Seller. Boleh dikosongkan.'],
+    is_featured: ['Jadikan paket unggulan', '']
+  };
+  var MAIN = ['name', 'price_amount', 'features', 'color'];
+  var MORE = ['description', 'duration_value', 'duration_unit', 'price_note', 'price_style', 'old_price_amount', 'addon_price_amount', 'addon_text', 'tag', 'is_featured'];
+  function paketField(def, k, vals) {
+    var f = def.fields.filter(function (x) { return x.k === k; })[0];
+    var c = {}; for (var i in f) c[i] = f[i]; c.label = UI[k][0];
+    var h = fieldHtml(c, vals[k]);
+    return UI[k][1] ? h.replace(/<\/label>$/, '<small class="hint">' + esc(UI[k][1]) + '</small></label>') : h;
+  }
+  function paketForm(def, vals) {
+    var hasMore = MORE.some(function (k) { return vals[k] !== '' && vals[k] != null && vals[k] !== false && k !== 'duration_unit' && k !== 'price_style'; });
+    var range = vals.price_max_amount !== '' && vals.price_max_amount != null;
+    return '<div class="formgrid"><div>' + paketField(def, 'active', vals) + paketField(def, 'name', vals) + paketField(def, 'price_amount', vals) +
+      '<button type="button" class="toggle" id="rangeBtn">' + (range ? '− Hapus harga rentang' : '+ Harganya rentang? (mis. 30K – 50K)') + '</button>' +
+      '<div id="rangeBox"' + (range ? '' : ' hidden') + '>' + paketField(def, 'price_max_amount', vals) + '</div>' +
+      paketField(def, 'features', vals) + paketField(def, 'color', vals) +
+      '<details class="more"' + (hasMore ? ' open' : '') + '><summary>Pengaturan lain (tidak wajib)</summary>' + MORE.map(function (k) { return paketField(def, k, vals); }).join('') + '</details></div>' +
+      '<div class="pvwrap"><b>PRATINJAU</b><div class="pv" id="pv"></div><small class="hint">Ini gambaran kasar. Tampilan asli di situs bisa sedikit berbeda.</small></div></div>';
+  }
+  function money(n, style) { n = Number(n) || 0; return style !== 'rp' && n >= 1000 && n % 1000 === 0 ? n / 1000 + 'K' : n.toLocaleString('id-ID'); }
+  function updatePreview() {
+    var pv = $('#pv'); if (!pv) return;
+    var g = function (k) { var el = $('[data-k="' + k + '"]'); return el ? el.value : ''; };
+    var st = g('price_style'), mx = g('price_max_amount') && !$('#rangeBox').hidden ? ' – ' + money(g('price_max_amount'), st) : '';
+    pv.style.setProperty('--c', g('color') || '#0022ff');
+    pv.innerHTML = '<h4>' + esc(g('name') || 'Nama paket') + '</h4><div class="pn">' + esc(g('price_note')) + '</div>' +
+      '<div class="pp"><small>Rp</small>' + esc(money(g('price_amount'), st) + mx) + '</div>' +
+      '<ul>' + g('features').split('\n').map(function (x) { return x.trim(); }).filter(Boolean).map(function (x) { return '<li>' + esc(x) + '</li>'; }).join('') + '</ul>' +
+      (g('addon_price_amount') ? '<div class="pa"><b>Add On Rp' + esc(money(g('addon_price_amount'), st)) + '</b><br>' + esc(g('addon_text')) + '</div>' : '');
+  }
+  ['input', 'change', 'click'].forEach(function (t) { document.addEventListener(t, function () { setTimeout(updatePreview, 0); }); });
+  document.addEventListener('click', function (e) {
+    if (e.target.id !== 'rangeBtn') return;
+    var box = $('#rangeBox'), on = box.hidden;
+    box.hidden = !on;
+    if (!on) $('[data-k="price_max_amount"]').value = '';
+    e.target.textContent = on ? '− Hapus harga rentang' : '+ Harganya rentang? (mis. 30K – 50K)';
+    updatePreview();
+  });
+
   var editing = null;
   function openForm(kind, id) {
     var def = S.schema[kind];
     var rec = id ? rowsOf(kind).filter(function (r) { return r.id === id; })[0] : null;
     editing = { kind: kind, id: id };
     var vals = rec || { active: true, duration_unit: 'menit', price_style: 'k', color: '#0022ff' };
+    $('#card').className = kind === 'paket' ? 'card wide' : 'card';
     $('#card').innerHTML = '<h3>' + (id ? 'Ubah ' : 'Tambah ') + esc(def.singular) + '</h3><form id="form">' +
-      orderedFields(def).map(function (f) { return fieldHtml(f, vals[f.k]); }).join('') +
+      (kind === 'paket' ? paketForm(def, vals) : orderedFields(def).map(function (f) { return fieldHtml(f, vals[f.k]); }).join('')) +
       '<div class="err" id="ferr"></div><div class="foot"><button type="button" class="btn ghost" id="cancel">Batal</button><button class="btn" id="save">Simpan</button></div></form>';
     $('#modal').classList.add('on');
+    if (kind === 'paket') updatePreview();
   }
   function closeForm() { $('#modal').classList.remove('on'); editing = null; }
   document.addEventListener('click', function (e) {
