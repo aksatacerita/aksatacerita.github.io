@@ -329,6 +329,31 @@ function api_saveSettings(obj) {
 }
 
 /** Simpan foto (sudah diperkecil di browser) ke Drive, bisa dilihat siapa saja yang punya link. */
+/** Ambil koordinat dari link Google Maps (termasuk link pendek) atau teks "lat, long". */
+function api_parseLocation(text) {
+  requireAdmin_();
+  var t = String(text || '').trim();
+  var find = function (str) {
+    var m = str.match(/^\s*(-?\d{1,3}\.\d+)\s*[,\s]\s*(-?\d{1,3}\.\d+)\s*$/) ||
+      str.match(/!3d(-?\d{1,3}\.\d+)!4d(-?\d{1,3}\.\d+)/) ||
+      str.match(/@(-?\d{1,3}\.\d+),(-?\d{1,3}\.\d+)/) ||
+      str.match(/[?&](?:q|ll|query|center|destination)=(-?\d{1,3}\.\d+)(?:,|%2C)(-?\d{1,3}\.\d+)/i);
+    return m ? { lat: m[1], lon: m[2] } : null;
+  };
+  var url = t, hit = find(decodeURIComponent(t.replace(/%(?![0-9a-f]{2})/gi, '%25')));
+  for (var i = 0; !hit && i < 5; i++) {
+    var host = (url.match(/^https:\/\/([^\/?#]+)/i) || [])[1] || '';
+    if (!/(^|\.)(google\.[a-z.]+|goo\.gl)$/i.test(host)) throw new Error('Tempel link dari Google Maps (https://maps.app.goo.gl/… atau google.com/maps/…), atau tulis koordinat seperti: -8.0725, 111.9137');
+    var res = UrlFetchApp.fetch(url, { followRedirects: false, muteHttpExceptions: true });
+    var loc = res.getHeaders()['Location'] || res.getHeaders()['location'];
+    if (!loc) { hit = find(res.getContentText().slice(0, 200000)); break; }
+    url = loc;
+    hit = find(decodeURIComponent(url.replace(/%(?![0-9a-f]{2})/gi, '%25')));
+  }
+  if (!hit) throw new Error('Koordinat tidak ketemu di link itu. Coba buka tempatnya di Google Maps, tekan Bagikan, lalu Salin link.');
+  return hit;
+}
+
 function api_upload(dataUrl, name) {
   requireAdmin_();
   var m = /^data:(image\/[a-z+.-]+);base64,(.+)$/i.exec(dataUrl);

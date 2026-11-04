@@ -2,7 +2,7 @@
 
 :root { --blue:#0022ff; --ink:#111; --muted:#5c5c5c; --paper:#fff; --soft:#f6f6f3; --orange:#ff6738; --pink:#ff79b8; --green:#b7e433; }
 * { box-sizing:border-box; }
-html { scroll-behavior:smooth; }
+html { scroll-behavior:smooth;overscroll-behavior-y:none; }
 body { margin:0; color:var(--ink); background:var(--paper); font-family:"DM Sans",sans-serif; }
 body:after { content:"";position:fixed;inset:0;pointer-events:none;z-index:90;opacity:.035;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.9'/%3E%3C/svg%3E"); }
 .scroll-progress { position:fixed;left:0;top:0;height:3px;background:var(--orange);z-index:100;transition:width .1s linear; }
