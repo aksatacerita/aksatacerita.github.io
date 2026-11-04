@@ -34,6 +34,8 @@ nav button:hover{color:#fff}
 nav button.on{background:var(--blue);color:#fff}
 main{max-width:1000px;margin:0;padding:26px 28px 90px}
 .panel{background:#fff;border:1px solid var(--line);padding:20px}
+.sticky{position:sticky;top:var(--hh,76px);z-index:20;background:#fff;margin:-20px -20px 8px;padding:16px 20px 10px;border-bottom:1px solid var(--line)}
+.sticky .head{margin-bottom:0}.sticky .bulk{margin:10px 0 0}
 .head{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-bottom:14px}
 .head h2{margin:0 auto 0 0;font-size:20px}
 .head h2 small{display:block;font-size:11px;color:var(--muted);font-weight:500}
@@ -72,7 +74,7 @@ label.f>span.req{color:var(--red)}
 .switch input{width:20px;height:20px;accent-color:var(--blue)}
 .imgbox{margin-top:6px;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .imgbox img{max-width:120px;max-height:120px;border:1px solid var(--line);background:#f0f0f0}
-.foot{display:flex;gap:10px;justify-content:flex-end;margin-top:18px;flex-wrap:wrap}
+.foot{display:flex;gap:10px;justify-content:flex-end;margin:18px -22px -22px;padding:12px 22px;flex-wrap:wrap;position:sticky;bottom:0;background:#fff;border-top:1px solid var(--line);box-shadow:0 -6px 12px #0000000d}
 .grp{margin:22px 0 10px;font:700 11px "DM Sans";letter-spacing:1.5px;color:var(--blue)}
 .err{color:var(--red);font-size:12px;margin-top:10px}
 #toast{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);background:#111;color:#fff;padding:11px 18px;font-size:13px;z-index:90;display:none;max-width:90vw}
@@ -156,6 +158,7 @@ main{padding:16px 12px 90px}
   };
   var setDirty = function (on) {
     $('#dirty').style.display = on ? '' : 'none';
+    if (typeof setHH === 'function') setHH();
   };
   var imgSrc = function (u) {
     if (!u) return '';
@@ -165,11 +168,15 @@ main{padding:16px 12px 90px}
   var parseList = function (v) { return String(v || '').split(/[,\n]+/).map(function (x) { return x.trim(); }).filter(Boolean); };
   var rowsOf = function (kind) { return S.data[kind]; };
 
+  var setHH = function () { document.documentElement.style.setProperty('--hh', $('header').offsetHeight + 'px'); };
+  window.addEventListener('resize', setHH);
+
   /* ---------- Tabs ---------- */
   function renderTabs() {
     var items = ['paket', 'frame', 'galeri', 'instagram'].map(function (k) { return [k, S.schema[k].label]; }).concat([['info', 'Info Studio']]);
     var cur = items.filter(function (it) { return it[0] === tab; })[0];
     $('#pageTitle').firstChild.nodeValue = (cur ? cur[1] : 'Admin') + ' ';
+    if (typeof setHH === 'function') setHH();
     $('#tabs').innerHTML = items.map(function (it) { return '<button data-t="' + it[0] + '" class="' + (it[0] === tab ? 'on' : '') + '">' + esc(it[1]) + '</button>'; }).join('');
   }
   $('#tabs').addEventListener('click', function (e) {
@@ -191,12 +198,12 @@ main{padding:16px 12px 90px}
   }
   function renderList() {
     var kind = tab, def = S.schema[kind], rows = rowsOf(kind);
-    var html = '<div class="panel"><div class="head"><h2>' + rows.length + ' ' + def.singular + '<small>Urutan di sini = urutan di situs. Tahan ⠿ lalu geser untuk memindahkan.</small></h2>' +
+    var html = '<div class="panel"><div class="sticky"><div class="head"><h2>' + rows.length + ' ' + def.singular + '<small>Urutan di sini = urutan di situs. Tahan ⠿ lalu geser untuk memindahkan.</small></h2>' +
       '<button class="btn ghost" id="selBtn">' + (selecting ? 'Batal' : 'Pilih') + '</button>' +
       '<button class="btn" id="addBtn">+ Tambah ' + def.singular + '</button></div>' +
       '<div class="bulk ' + (selecting ? 'on' : '') + '" id="bulk"><label><input type="checkbox" id="selAll" class="chk" style="display:inline-block"> Pilih semua</label><span class="cnt" id="cnt">Pilih item untuk aksi massal</span>' +
       '<button class="btn sm ghost" data-bulk="show" disabled>Tampilkan</button><button class="btn sm ghost" data-bulk="hide" disabled>Sembunyikan</button><button class="btn sm danger" data-bulk="delete" disabled>Hapus</button></div>' +
-      '<div id="list">';
+      '</div><div id="list">';
     if (!rows.length) html += '<div class="empty">Belum ada data. Klik "+ Tambah ' + esc(def.singular) + '" untuk mulai.</div>';
     rows.forEach(function (r) {
       var src = imgSrc(r.image);
@@ -347,6 +354,16 @@ main{padding:16px 12px 90px}
     tag: ['Label di kartu', 'Contoh: Best Seller. Boleh dikosongkan.'],
     is_featured: ['Jadikan paket unggulan', '']
   };
+  var UI2 = {
+    frame: { name: ['Nama frame', 'Contoh: Retro Blue'], image: ['Gambar frame', 'Pilih gambar dari HP atau komputer. Otomatis dikecilkan.'], label: ['Label di pojok (tidak wajib)', 'Contoh: NEW DROP. Pilih tombol di bawah atau ketik sendiri.'], type: ['Jenis frame', 'Dipakai untuk penyaring di situs.'], size: ['Ukuran', 'Contoh: 2R atau 4R'], color: ['Warna latar', 'Dipakai kalau frame belum punya gambar.'] },
+    galeri: { title: ['Judul foto', 'Contoh: Sesi Wisuda'], image: ['Foto', 'Pilih foto dari HP atau komputer. Otomatis dikecilkan.'], category: ['Kategori', 'Pilih tombol di bawah atau ketik sendiri.'] },
+    instagram: { url: ['Link postingan Instagram', 'Buka postingan di Instagram, ketuk titik tiga, lalu Salin link. Contoh: instagram.com/p/xxxx'] }
+  };
+  function plainField(kind, f, v) {
+    var u = (UI2[kind] || {})[f.k]; if (!u) return fieldHtml(f, v);
+    var c = {}; for (var i in f) c[i] = f[i]; c.label = u[0];
+    return fieldHtml(c, v).replace(/<\/label>$/, '<small class="hint">' + esc(u[1]) + '</small></label>');
+  }
   var MAIN = ['name', 'price_amount', 'features', 'color'];
   var MORE = ['description', 'duration_value', 'duration_unit', 'price_note', 'price_style', 'old_price_amount', 'addon_price_amount', 'addon_text', 'tag', 'is_featured'];
   function paketField(def, k, vals) {
@@ -396,7 +413,7 @@ main{padding:16px 12px 90px}
     var vals = rec || { active: true, duration_unit: 'menit', price_style: 'k', color: '#0022ff' };
     $('#card').className = kind === 'paket' ? 'card wide' : 'card';
     $('#card').innerHTML = '<h3>' + (id ? 'Ubah ' : 'Tambah ') + esc(def.singular) + '</h3><form id="form">' +
-      (kind === 'paket' ? paketForm(def, vals) : orderedFields(def).map(function (f) { return fieldHtml(f, vals[f.k]); }).join('')) +
+      (kind === 'paket' ? paketForm(def, vals) : orderedFields(def).map(function (f) { return plainField(kind, f, vals[f.k]); }).join('')) +
       '<div class="err" id="ferr"></div><div class="foot"><button type="button" class="btn ghost" id="cancel">Batal</button><button class="btn" id="save">Simpan</button></div></form>';
     $('#modal').classList.add('on');
     if (kind === 'paket') updatePreview();
@@ -527,7 +544,7 @@ main{padding:16px 12px 90px}
     S = s; $('#who').textContent = s.email;
     $('#publish').disabled = false;
     if (!s.github) $('#publish').title = 'Penerbitan ke GitHub belum diatur; situs membaca langsung dari Sheets.';
-    renderTabs(); render();
+    renderTabs(); setHH(); render();
   }).catch(function (e) {
     $('#view').innerHTML = '<div id="gate"><h2>Tidak bisa masuk</h2><p>' + esc(e.message) + '</p></div>';
   });
