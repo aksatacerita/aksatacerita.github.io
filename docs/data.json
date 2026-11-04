@@ -595,16 +595,10 @@
       "image": "img/gallery/pmIu0hFZ1bz4ii2kOnpUVG6Ehvech89V9UdTSRvP.webp"
     },
     {
-      "id": "61",
-      "title": "😱🥶",
-      "category": "Event",
-      "image": "img/gallery/IjrAwr0FZIeLom4fR5Cl7jzdmD6ikYTsoJvA8e6w.webp"
-    },
-    {
-      "id": "c9da9286-353e-4904-a61c-6f31fb236a2e",
-      "title": "Pet 🙈",
-      "category": "Bestie",
-      "image": "img/gallery/1bnTWsGtynzB9zG6U1yfNXqpii5mbNhhA.jpg"
+      "id": "52",
+      "title": "Heart Check",
+      "category": "Couple",
+      "image": "img/gallery/heart-check.webp"
     },
     {
       "id": "48",
@@ -613,22 +607,28 @@
       "image": "img/gallery/cowboy-besties.webp"
     },
     {
+      "id": "61",
+      "title": "😱🥶",
+      "category": "Event",
+      "image": "img/gallery/IjrAwr0FZIeLom4fR5Cl7jzdmD6ikYTsoJvA8e6w.webp"
+    },
+    {
       "id": "49",
       "title": "Denim Day Out",
       "category": "Bestie",
       "image": "img/gallery/denim-day-out.webp"
     },
     {
+      "id": "c9da9286-353e-4904-a61c-6f31fb236a2e",
+      "title": "Pet 🙈",
+      "category": "Bestie",
+      "image": "img/gallery/1bnTWsGtynzB9zG6U1yfNXqpii5mbNhhA.jpg"
+    },
+    {
       "id": "51",
       "title": "Soft Girls Club",
       "category": "Bestie",
       "image": "img/gallery/soft-girls-club.webp"
-    },
-    {
-      "id": "52",
-      "title": "Heart Check",
-      "category": "Couple",
-      "image": "img/gallery/heart-check.webp"
     },
     {
       "id": "53",
@@ -683,5 +683,5 @@
       "url": "https://www.instagram.com/reel/DewIMyjiRr2/"
     }
   ],
-  "updated_at": "2026-11-03T05:20:52.333Z"
+  "updated_at": "2026-11-04T02:13:43.884Z"
 }
