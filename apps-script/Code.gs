@@ -20,7 +20,7 @@ var DEFAULT_SETTINGS = {
   open_days: 'Setiap Hari', open_hours: '10.00 — 22.00 WIB', last_session: 'Last session 21.30',
   ticker: 'STUDIO OPEN DAILY · 10.00—22.00 WIB',
   whatsapp: '6285117375305', wa_message: 'Halo Aksatacerita! Aku mau pesan ', email: '', instagram: 'aksatacerita', tiktok: '', facebook: '',
-  hero_line1: 'Abadikan cerita', hero_line2: 'serumu di', hero_highlight: 'Aksata.',
+  hero_line1: 'Abadikan cerita', hero_line2: 'serumu di', hero_highlight: 'Aksata Cerita.',
   hero_text: 'Masuk, pilih pose paling random, lalu bawa pulang potongan cerita yang nggak akan terulang dua kali.',
   proof_show: '1', proof_rating: '4.9 / 5', proof_text: 'disayang 2,000+ teman cerita',
   show_frames: '1', show_booth: '1', show_instagram: '1',
@@ -80,7 +80,7 @@ var SETTINGS_SHEET = 'Pengaturan';
 /* ---------- Menu & penyiapan ---------- */
 
 function onOpen() {
-  SpreadsheetApp.getUi().createMenu('Aksata')
+  SpreadsheetApp.getUi().createMenu('Aksata Cerita')
     .addItem('Siapkan sheet (sekali saja)', 'setupSheets')
     .addItem('Impor data dari GitHub (docs/data.json)', 'importFromGithub')
     .addItem('Terbitkan ke situs', 'publishFromMenu')

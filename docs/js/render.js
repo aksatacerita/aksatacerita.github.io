@@ -140,7 +140,7 @@
     </div></section>` : ''}
 
     ${s.show_booth === '1' ? `<section class="booth-lab"><div class="shell booth-grid">
-      <div class="booth-copy"><span class="kicker">AKSATA PLAYGROUND — BETA</span><h2>Try the booth.<br><i>Strike a pose!</i></h2><p>Pemanasan dulu sebelum datang ke studio. Tekan tombol shutter dan tunjukkan pose paling ikonikmu.</p><div class="booth-tips"><span>01&nbsp; LOOK</span><span>02&nbsp; POSE</span><span>03&nbsp; SNAP!</span></div></div>
+      <div class="booth-copy"><span class="kicker">AKSATA CERITA PLAYGROUND — BETA</span><h2>Try the booth.<br><i>Strike a pose!</i></h2><p>Pemanasan dulu sebelum datang ke studio. Tekan tombol shutter dan tunjukkan pose paling ikonikmu.</p><div class="booth-tips"><span>01&nbsp; LOOK</span><span>02&nbsp; POSE</span><span>03&nbsp; SNAP!</span></div></div>
       <div class="booth-machine" data-photos="${esc(JSON.stringify(photos))}">
         <div class="machine-top">${brand(false)}<span>LIVE PREVIEW <i></i></span></div>
         <div class="booth-screen">${photos.length ? `<img src="${esc(p(0))}" alt="Preview photobooth interaktif">` : ''}<div class="screen-grid"></div><span class="rec-badge">● REC</span><span class="frame-counter">FRAME 01</span><div class="screen-caption">YOU LOOK<br><b>AMAZING!</b></div></div>
