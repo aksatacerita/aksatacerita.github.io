@@ -76,6 +76,15 @@ td,th{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-ali
 .tag{font-size:10px;font-weight:800;letter-spacing:1px;color:var(--muted);text-transform:uppercase}
 @media (max-width:860px){.wrap{display:block}.side{position:static;height:auto;border:0;border-bottom:1px solid var(--line)}main{padding:18px 14px 90px}.map{grid-template-columns:1fr 1fr}.hero h1{font-size:24px}}
 @media print{.side,.hero .quick,.copy,.sim,.role,#faqSearch,.tabs{display:none}.wrap{display:block}main{padding:0}section{break-inside:avoid}details{break-inside:avoid}details>div{display:block}details[open]{}body{background:#fff;color:#000}}
+
+.kartu{border:2px dashed var(--ink,#111);padding:18px 20px;margin:12px 0;background:#fff;color:#111}
+.kartu h4{margin:0 0 12px;font-size:15px}
+.kartu .ln{display:flex;align-items:flex-end;gap:10px;margin:14px 0;font-size:13px}
+.kartu .ln b{flex:none;min-width:150px}
+.kartu .ln span{flex:1;border-bottom:1.5px solid #999;min-height:22px;font-size:12px;word-break:break-all;color:#0022ff}
+.kartu small{display:block;color:#666;margin-top:10px}
+.keys kbd{border:1px solid var(--line);border-bottom-width:2px;padding:1px 7px;font:600 12px inherit;background:#fff}
+@media print{body.print-kartu *{visibility:hidden}body.print-kartu #kartu,body.print-kartu #kartu *{visibility:visible}body.print-kartu #kartu{position:absolute;left:0;top:0;width:100%}}
 </style>
 </head>
 <body>
@@ -157,6 +166,29 @@ td,th{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-ali
     <li>Halaman admin terbuka dengan tab <b>Paket · Frame · Galeri · Instagram · Info Studio</b>.</li>
   </ol>
   <div class="note">Email yang belum terdaftar melihat pesan <code>Akses ditolak</code>. Admin yang terkunci itu disengaja: hanya orang di daftar yang bisa mengubah isi situs.</div></div>
+  <div class="card" id="jalan-pintas">
+    <h3 style="margin:0 0 6px">Jalan pintas: masuk lewat jendela privat</h3>
+    <p class="sub" style="margin:0 0 10px">Paling aman dan paling jarang salah akun, terutama kalau browser login ke banyak akun Google. Cukup sekali setting.</p>
+    <ol>
+      <li><b>Simpan Link Admin sebagai bookmark.</b> Tempel Link Admin di kotak "Link penting" di atas, klik <b>Buka</b>, lalu tekan <span class="keys"><kbd>Cmd</kbd>+<kbd>D</kbd></span> (Windows: <kbd>Ctrl</kbd>+<kbd>D</kbd>). Taruh di <b>Bookmarks Bar</b> dan beri nama "Admin Aksata Cerita".</li>
+      <li><b>Buka bookmark itu di jendela privat.</b> Klik kanan bookmark-nya, lalu pilih <b>Open in New Private Window</b> (Safari) atau <b>Open in Incognito Window</b> (Chrome).</li>
+      <li><b>Login Google</b> dengan email dan password admin (lihat kartu di bawah). Kalau diminta kode verifikasi, ambil dari HP.</li>
+      <li>Admin terbuka. Selesai bekerja, <b>tutup jendela privat</b>. Itu sama dengan keluar.</li>
+    </ol>
+    <p class="keys" style="margin:8px 0 0;font-size:13px">Pintasan jendela privat: Safari <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>N</kbd> · Chrome <kbd>Shift</kbd>+<kbd>Cmd</kbd>+<kbd>N</kbd> (Windows <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>N</kbd>). Di HP: Safari buka tab, pilih <b>Pribadi</b>; Chrome menu ⋮ lalu <b>Tab Penyamaran Baru</b>.</p>
+
+    <div class="kartu" id="kartu">
+      <h4>Kartu login Admin Aksata Cerita</h4>
+      <div class="ln"><b>Email Google admin</b><span></span></div>
+      <div class="ln"><b>Password</b><span></span></div>
+      <div class="ln"><b>Kode cadangan / HP pemulihan</b><span></span></div>
+      <div class="ln"><b>Link Admin</b><span data-fill="admin"></span></div>
+      <small>Isi dengan tulisan tangan di cetakan, lalu simpan di tempat aman. Kolom di atas sengaja kosong.</small>
+    </div>
+    <div class="note warn"><b>Jangan ketik password di halaman ini.</b> Halaman ini tidak menyimpan password, dan memang tidak boleh. Tulis di kertas hasil cetak, atau simpan di password manager.</div>
+    <button class="btn ghost" id="printKartu" type="button">Cetak kartu login saja</button>
+    <p class="sub" style="margin:10px 0 0">Cara masuk lengkap, tambah admin, dan jika Google salah akun ada di bagian bawah dan di <b>3. Tugas sehari-hari</b>.</p>
+  </div>
   <details><summary>Menambah orang lain sebagai admin</summary><div><ol>
     <li>Google Sheet → <b>Bagikan</b> → tambahkan emailnya sebagai <b>Editor</b>.</li>
     <li>Editor Apps Script → <b>Setelan project</b> (ikon roda) → <b>Properti skrip</b>.</li>
@@ -446,8 +478,15 @@ npx @google/clasp update-deployment &lt;deploymentId&gt; -V &lt;versi&gt; -d "Ad
       store.set('link_' + i.dataset.link, i.value.trim());
       var a = $('[data-open="' + i.dataset.link + '"]'), ok = /^https:\/\//.test(i.value.trim());
       a.href = ok ? i.value.trim() : '#'; a.style.opacity = ok ? 1 : .4;
+      $$('[data-fill="' + i.dataset.link + '"]').forEach(function (f) { f.textContent = ok ? i.value.trim() : ''; });
     };
     i.addEventListener('input', sync); sync();
+  });
+
+  // Cetak kartu login saja
+  $('#printKartu').addEventListener('click', function () {
+    document.body.classList.add('print-kartu'); window.print();
+    setTimeout(function () { document.body.classList.remove('print-kartu'); }, 500);
   });
 
   // Tanggal cadangan terakhir
