@@ -27,6 +27,8 @@ Website photobooth **Aksata Cerita** (Tulungagung): landing page statis yang cep
 
 - **Landing page statis** — paket & harga, katalog frame, galeri "Teman Cerita", Instagram feed, lokasi (peta), pemesanan sesi via WhatsApp, simulasi photobooth.
 - **Admin** — tambah / ubah / hapus / sembunyikan, mode pilih massal, geser urutan (mouse & sentuh), unggah foto (otomatis dikecilkan di browser), info studio.
+- **Harga rentang** — paket bisa berharga "30K – 50K" (kolom *Harga sampai*, mis. Request Frame).
+- **Admin ramah pemula** — tampilan sidebar, form paket yang sederhana dengan pratinjau kartu, dan tombol *Panduan halaman ini* di tiap tab.
 - **Perubahan tampil dalam detik** — situs membaca isi terbaru langsung dari Sheet; `data.json` hanya tampilan awal dan cadangan.
 - **Cadangan permanen** — tombol *Terbitkan* menyalin data & foto ke repo ini lewat satu commit.
 - **Tangguh** — kalau Google bermasalah, situs tetap tampil dari `data.json`.
@@ -164,4 +166,4 @@ Setelah mengubah kode: `push` → `create-version` → `update-deployment` untuk
 
 ## Kredit
 
-Dibuat oleh **Tim RPL SMKN 1 Boyolangu** — <https://tim-rpl-rho.vercel.app>
+Dibuat oleh **Tim RPL SMKN 1 Boyolangu** — <https://timdev3k.vercel.app>
