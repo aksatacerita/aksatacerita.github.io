@@ -13,8 +13,8 @@
 
   let tx = 0, ty = 0, x = 0, y = 0, raf = 0, shown = false;
   const loop = () => {
-    x += (tx - x) * 0.2;
-    y += (ty - y) * 0.2;
+    x += (tx - x) * 0.4;
+    y += (ty - y) * 0.4;
     el.style.transform = `translate3d(${x}px,${y}px,0)`;
     raf = Math.abs(tx - x) > 0.1 || Math.abs(ty - y) > 0.1 ? requestAnimationFrame(loop) : 0;
   };
@@ -24,7 +24,13 @@
     if (!shown) { shown = true; x = tx; y = ty; el.classList.add('on'); }
     if (!raf) raf = requestAnimationFrame(loop);
   }, { passive: true });
-  document.addEventListener('mouseover', (e) => { el.classList.toggle('lock', !!(e.target.closest && e.target.closest(SEL))); });
+  // Tunda sebentar supaya tidak berkedip saat kursor melintasi banyak elemen dengan cepat
+  let lockTimer = 0;
+  document.addEventListener('mouseover', (e) => {
+    const on = !!(e.target.closest && e.target.closest(SEL));
+    clearTimeout(lockTimer);
+    lockTimer = setTimeout(() => el.classList.toggle('lock', on), on ? 60 : 0);
+  });
   document.addEventListener('mousedown', () => el.classList.add('press'));
   document.addEventListener('mouseup', () => el.classList.remove('press'));
   document.documentElement.addEventListener('mouseleave', () => { shown = false; el.classList.remove('on', 'press'); });

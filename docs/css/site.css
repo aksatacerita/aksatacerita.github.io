@@ -223,14 +223,14 @@ footer { background:#0d0d0d;color:white;padding:65px 0 25px; }.footer-top{displa
 .ig-item{flex:0 1 380px;width:100%;max-width:380px}
 
 /* Kursor bingkai fokus kamera (js/cursor.js) */
-.vf{position:fixed;left:-22px;top:-22px;width:44px;height:44px;pointer-events:none;z-index:100;opacity:0;transition:opacity .2s;will-change:transform;mix-blend-mode:difference;color:#fff}
+.vf{position:fixed;left:-22px;top:-22px;width:44px;height:44px;pointer-events:none;z-index:100;opacity:0;transition:opacity .2s;will-change:transform;color:#0022ff}
 .vf.on{opacity:1}
 .vf-in{position:absolute;inset:0;transition:transform .22s cubic-bezier(.2,.8,.2,1)}
-.vf-in i{position:absolute;width:10px;height:10px;border:2px solid currentColor}
+.vf-in i{position:absolute;width:10px;height:10px;border:2px solid currentColor;box-shadow:0 0 0 1px #ffffffcc}
 .vf-in i:nth-child(1){top:0;left:0;border-right:0;border-bottom:0}
 .vf-in i:nth-child(2){top:0;right:0;border-left:0;border-bottom:0}
 .vf-in i:nth-child(3){bottom:0;left:0;border-right:0;border-top:0}
 .vf-in i:nth-child(4){bottom:0;right:0;border-left:0;border-top:0}
-.vf:after{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px;border-radius:50%;background:currentColor;transform:scale(0);transition:transform .2s}
+.vf:after{content:"";position:absolute;left:50%;top:50%;width:5px;height:5px;margin:-2.5px;border-radius:50%;background:currentColor;transform:scale(0);transition:transform .2s;box-shadow:0 0 0 1px #ffffffcc}
 .vf.lock .vf-in{transform:scale(1.55)}.vf.lock:after{transform:scale(1)}
 .vf.press .vf-in{transform:scale(.7)}.vf.lock.press .vf-in{transform:scale(1.2)}
